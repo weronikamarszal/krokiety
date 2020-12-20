@@ -8,6 +8,7 @@ function displayMenu($page)
     <a href='buy-invoice.php'>Faktury Zakupu</a>
     <a href='document.php'>Dokumenty</a>
     <a href='licence.php'>Licencje</a>
+    <a href='equipment.php'>Sprzęty</a>
     
     </div>
     <div>" . $page . " </div>

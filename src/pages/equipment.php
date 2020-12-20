@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__.'/../components/menu.php';
 require_once __DIR__.'/../components/list-page/BaseListPage.php';
-require_once __DIR__ . '/../components/LicenceListComponent.php';
+require_once __DIR__ . '/../components/EquipmentListComponent.php';
 require_once __DIR__ . '/../components/PaginatorComponent.php';
+require_once __DIR__ . '/../components/EquipmentSearchForm.php';
 
 $values = array(
     array(
@@ -22,5 +23,5 @@ $values = array(
     )
 );
 
-displayMenu(new BaseListPage(new LicenceListComponent($values),  null, "Licencje", new PaginatorComponent(sizeof($values))));
+displayMenu(new BaseListPage(new EquipmentListComponent($values),  new EquipmentSearchForm(), "Sprzęty", new PaginatorComponent(sizeof($values))));
 ?>
