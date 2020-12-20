@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../component.interface.php';
+require_once __DIR__ . '/../component.interface.php';
 
 class BaseListPage implements Component
 {
@@ -29,14 +29,14 @@ class BaseListPage implements Component
 
     public function __toString()
     {
-        return "
-                <h2>$this->title</h2>
-                <a href='#'> Dodaj</a>
-                $this->list 
-                $this->paginator 
-                $this->searchForm
-                ";
+        ob_start();
+        ?>
+        <h2> <?= $this->title ?></h2>
+        <a href='#'> Dodaj</a>
+        <?= $this->list ?>
+        <?= $this->paginator ?>
+        <?= $this->searchForm ?>
+        <?php
+        return ob_get_clean();
     }
-
-
 }

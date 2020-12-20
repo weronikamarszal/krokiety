@@ -13,26 +13,32 @@ class InvoiceListComponent implements Component
 
     public function __toString()
     {
-        $result = "<table>
-            <tr> 
+        ob_start();
+        ?>
+        <table>
+            <thead>
+            <tr>
                 <th> Numer faktury</th>
                 <th> VAT</th>
                 <th> Netto</th>
                 <th> Szczegóły</th>
             </tr>
-        ";
-        foreach ($this->values as $i) {
-            $result = $result . "
-            <tr>
-                 <td>". $i["id"]." </td>
-                 <td>". $i["VAT"]." </td>
-                 <td>". $i["netto"]." </td>
-                 <td> <a href='#'> Pokaż</a> </td>
-            </tr>
- ";
-        }
-        $result = $result . "</table>";
-        return $result;
+            </thead>
+            <tbody>
+            <?php foreach ($this->values as $i): ?>
+                <tr>
+                    <td> <?= $i["id"] ?> </td>
+                    <td> <?= $i["VAT"] ?> </td>
+                    <td> <?= $i["netto"] ?> </td>
+                    <td><a href='#'> Pokaż</a></td>
+                </tr>
+            <?php endforeach; ?>
+
+
+            </tbody>
+        </table>
+        <?php
+        return ob_get_clean();
     }
 
 }
