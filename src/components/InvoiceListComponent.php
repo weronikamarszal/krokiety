@@ -25,11 +25,11 @@ class InvoiceListComponent implements Component
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($this->values as $i): ?>
+            <?php foreach ($this->values as $invoice): ?>
                 <tr>
-                    <td> <?= $i["id"] ?> </td>
-                    <td> <?= $i["VAT"] ?> </td>
-                    <td> <?= $i["netto"] ?> </td>
+                    <td> <?= $invoice["id"] ?> </td>
+                    <td> <?= $invoice["VAT"] ?> </td>
+                    <td> <?= $invoice["netto"] ?> </td>
                     <td><a href='#'> Pokaż</a></td>
                 </tr>
             <?php endforeach; ?>
