@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/component.interface.php';
 
-class InvoiceSellSearchForm implements Component
+class InvoiceSearchForm implements Component
 {
 
 
