@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/component.interface.php';
+require_once __DIR__ . '/../../components/component.interface.php';
 
 
-class InvoiceListComponent implements Component
+class DocumentListComponent implements Component
 {
     protected $values;
 
@@ -18,18 +18,18 @@ class InvoiceListComponent implements Component
         <table>
             <thead>
             <tr>
-                <th> Numer faktury</th>
-                <th> VAT</th>
-                <th> Netto</th>
+                <th> Data</th>
+                <th> Strony</th>
+                <th> Notatki</th>
                 <th> Szczegóły</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($this->values as $invoice): ?>
+            <?php foreach ($this->values as $document): ?>
                 <tr>
-                    <td> <?= $invoice["id"] ?> </td>
-                    <td> <?= $invoice["VAT"] ?> </td>
-                    <td> <?= $invoice["netto"] ?> </td>
+                    <td> <?= $document["date"] ?> </td>
+                    <td> <?= $document["pages"] ?> </td>
+                    <td> <?= $document["notes"] ?> </td>
                     <td><a href='#'> Pokaż</a></td>
                 </tr>
             <?php endforeach; ?>

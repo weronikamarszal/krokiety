@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/component.interface.php';
+require_once __DIR__ . '/../component.interface.php';
 
 class InvoiceSearchForm implements Component
 {

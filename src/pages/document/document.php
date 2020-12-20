@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__.'/../components/menu.php';
-require_once __DIR__.'/../components/list-page/BaseListPage.php';
-require_once __DIR__ . '/../components/DocumentListComponent.php';
-require_once __DIR__ . '/../components/PaginatorComponent.php';
-require_once __DIR__ . '/../components/DocumentSearchForm.php';
+require_once __DIR__ . '/../../components/menu.php';
+require_once __DIR__ . '/../../components/list-page/BaseListPage.php';
+require_once __DIR__ . '/../../components/PaginatorComponent.php';
+require_once __DIR__ . '/DocumentListComponent.php';
+require_once __DIR__ . '/DocumentSearchForm.php';
 
 $values = array(
     array(

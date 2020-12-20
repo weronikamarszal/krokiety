@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/component.interface.php';
+require_once __DIR__ . '/../../components/component.interface.php';
 
 
 class UserListComponent implements Component

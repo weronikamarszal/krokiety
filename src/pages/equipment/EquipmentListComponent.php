@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/component.interface.php';
+require_once __DIR__ . '/../../components/component.interface.php';
 
 
-class LicenceListComponent implements Component
+class EquipmentListComponent implements Component
 {
     protected $values;
 
