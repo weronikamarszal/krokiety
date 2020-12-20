@@ -9,6 +9,7 @@ function displayMenu($page)
     <a href='document.php'>Dokumenty</a>
     <a href='licence.php'>Licencje</a>
     <a href='equipment.php'>Sprzęty</a>
+    <a href='user.php'>Użytkownicy</a>
     
     </div>
     <div>" . $page . " </div>
