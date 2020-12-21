@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../../components/component.interface.php';
-require_once __DIR__ . '/../../components/databaseConnection.php';
+require_once __DIR__ . '/../../autoload.php';
+
 
 class UserListComponent implements Component
 {
