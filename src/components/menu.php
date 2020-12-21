@@ -18,3 +18,5 @@ function displayMenu($page)
 }
 
 ?>
+
+//lol
