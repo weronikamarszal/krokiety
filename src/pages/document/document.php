@@ -1,27 +1,27 @@
 <?php
-require_once __DIR__ . '/../../components/menu.php';
-require_once __DIR__ . '/../../components/list-page/BaseListPage.php';
-require_once __DIR__ . '/../../components/PaginatorComponent.php';
-require_once __DIR__ . '/DocumentListComponent.php';
-require_once __DIR__ . '/DocumentSearchForm.php';
+require_once __DIR__.'/../../autoload.php';
 
 $values = array(
     array(
-        "date" => "2020-12-20T17:38:28.150Z",
-        "pages" => "strona1",
+        "documentDate" => "2020-12-20T17:38:28.150Z",
         "notes" => "notatka",
+        "pagesNumber" => "strona1",
     ),
     array(
-        "date" => "2020-12-20T17:38:28.150Z",
-        "pages" => "strona1",
+        "documentDate" => "2020-12-20T17:38:28.150Z",
         "notes" => "notatka",
+        "pagesNumber" => "strona1",
     ),
     array(
-        "date" => "2020-12-20T17:38:28.150Z",
-        "pages" => "strona1",
+        "documentDate" => "2020-12-20T17:38:28.150Z",
         "notes" => "notatka",
+        "pagesNumber" => "strona1",
     )
 );
 
-displayMenu(new BaseListPage(new DocumentListComponent($values),  new DocumentSearchForm(), "Dokumenty", new PaginatorComponent(sizeof($values)), '#'));
+displayMenu(new BaseListPage(new DocumentListComponent($values),
+    new DocumentSearchForm(),
+    "Dokumenty",
+    new PaginatorComponent(sizeof($values)),
+    '/krokiety/src/pages/document/add-document.php'));
 ?>

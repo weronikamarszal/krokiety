@@ -6,9 +6,6 @@ class AddInvoiceComponent implements Component
 {
     protected $fields;
 
-    /**
-     * AddInvoiceComponent constructor.
-     */
     public function __construct($errors)
     {
         $this->fields = array(
