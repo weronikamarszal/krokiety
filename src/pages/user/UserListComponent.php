@@ -30,13 +30,13 @@ class UserListComponent implements Component
             <tbody>
             <?php foreach ($this->values as $user): ?>
                 <tr>
-                    <td> <?= $user[0] ?> </td>
-                    <td> <?= $user[1] ?> </td>
-                    <td> <?= $user[2] ?> </td>
-                    <td> <?= $user[3] ?> </td>
-                    <td> <?= $user[4] ?> </td>
-                    <td> <?= $user[5] ?> </td>
-                    <td> <?= $user[6] ?> </td>
+                    <td> <?= $user->getId() ?> </td>
+                    <td> <?= $user->getLogin() ?> </td>
+                    <td> <?= $user->getFirstName() ?> </td>
+                    <td> <?= $user->getSurname() ?> </td>
+                    <td> <?= $user->getPhoneNumber() ?> </td>
+                    <td> <?= $user->getRole() ?> </td>
+                    <td> <?= $user->getEmail() ?> </td>
                 </tr>
             <?php endforeach; ?>
 

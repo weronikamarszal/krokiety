@@ -9,7 +9,7 @@ function displayMenu($page)
     <a href='/krokiety/src/pages/document/document.php'>Dokumenty</a>
     <a href='/krokiety/src/pages/licence/licence.php'>Licencje</a>
     <a href='/krokiety/src/pages/equipment/equipment.php'>Sprzęty</a>
-    <a href='/krokiety/src/pages/user/user.php'>Użytkownicy</a>
+    <a href='/krokiety/src/pages/user/usersList.php'>Użytkownicy</a>
     
     </div>
         <div>" . $page . " </div>
