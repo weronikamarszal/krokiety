@@ -43,5 +43,5 @@ function insertUser($data,$dbh){
 }
 /*insertUser($data,$dbh);*/
 
-displayMenu(new BaseListPage(new UserListComponent($usersList),  null, "Użytkownicy", new PaginatorComponent(sizeof($usersList))));
+displayMenu(new BaseListPage(new UserListComponent($usersList),  null, "Użytkownicy", new PaginatorComponent(sizeof($usersList)), '#'));
 ?>

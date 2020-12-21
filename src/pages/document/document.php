@@ -23,5 +23,5 @@ $values = array(
     )
 );
 
-displayMenu(new BaseListPage(new DocumentListComponent($values),  new DocumentSearchForm(), "Dokumenty", new PaginatorComponent(sizeof($values))));
+displayMenu(new BaseListPage(new DocumentListComponent($values),  new DocumentSearchForm(), "Dokumenty", new PaginatorComponent(sizeof($values)), '#'));
 ?>
