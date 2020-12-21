@@ -1,14 +1,11 @@
 <?php
-require_once __DIR__ . '/../component.interface.php';
+require_once __DIR__ . '/../../autoload.php';
 
 
 class AddInvoiceComponent implements Component
 {
     protected $fields;
 
-    /**
-     * AddInvoiceComponent constructor.
-     */
     public function __construct($errors)
     {
         $this->fields = array(

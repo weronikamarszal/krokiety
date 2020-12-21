@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../components/component.interface.php';
+require_once __DIR__ . '/../../autoload.php';
 
 
 class LicenceListComponent implements Component

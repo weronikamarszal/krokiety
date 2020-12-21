@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../component.interface.php';
+require_once __DIR__ . '/../../autoload.php';
 
 
 class InvoiceListComponent implements Component

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../components/component.interface.php';
+require_once __DIR__ . '/../../autoload.php';
 
 
 class DocumentListComponent implements Component
@@ -19,17 +19,17 @@ class DocumentListComponent implements Component
             <thead>
             <tr>
                 <th> Data</th>
-                <th> Strony</th>
                 <th> Notatki</th>
+                <th> Strony</th>
                 <th> Szczegóły</th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($this->values as $document): ?>
                 <tr>
-                    <td> <?= $document["date"] ?> </td>
-                    <td> <?= $document["pages"] ?> </td>
+                    <td> <?= $document["documentDate"] ?> </td>
                     <td> <?= $document["notes"] ?> </td>
+                    <td> <?= $document["pagesNumber"] ?> </td>
                     <td><a href='#'> Pokaż</a></td>
                 </tr>
             <?php endforeach; ?>
