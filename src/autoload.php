@@ -12,4 +12,5 @@ require_once __DIR__ . '/components/field-components/BaseInputField.php';
 require_once __DIR__ . '/components/field-components/NumberInputField.php';
 require_once __DIR__ . '/components/field-components/TextInputField.php';
 require_once __DIR__ . '/components/field-components/FileInputField.php';
+require_once __DIR__ . '/pages/invoice-shared/InvoiceValidation.php';
 

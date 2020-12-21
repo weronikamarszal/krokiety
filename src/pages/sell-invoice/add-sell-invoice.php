@@ -7,4 +7,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = $validator->validate($_POST, $_FILES);
 }
 
-displayMenu(new BaseAddPage("Dodaj fakturę sprzedaży", new AddInvoiceComponent($errors)));
+displayMenu(new BaseAddPage("Dodaj fakturę zakupu", new AddInvoiceComponent($errors)));
