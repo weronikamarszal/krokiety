@@ -28,7 +28,20 @@ try{
 catch(Exception $e){
     throw new Exception($e->getMessage());
 }
-
+$data = [
+    'login' => "mnowak5",
+    'firstName' => "Mariusz",
+    'surname' => "Nowak",
+    'phoneNumber'=>"567-345-532",
+    'role'=>'employee"',
+    'email'=>"mnowak5@company.com"
+];
+function insertUser($data,$dbh){
+        $stmt= $dbh->prepare("INSERT INTO users (login, firstName,surname, phoneNumber,role,email) VALUES 
+        (:login,:firstName,:surname,:phoneNumber,:role,:email)");
+        $stmt->execute($data);
+}
+/*insertUser($data,$dbh);*/
 
 displayMenu(new BaseListPage(new UserListComponent($usersList),  null, "Użytkownicy", new PaginatorComponent(sizeof($usersList))));
 ?>
