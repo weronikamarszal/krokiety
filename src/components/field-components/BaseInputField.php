@@ -6,20 +6,14 @@ class BaseInputField implements Component
     protected $label;
     protected $name;
     protected $type;
+    protected $error;
 
-
-    /**
-     * TextInputField constructor.
-     * @param $label
-     * @param $name
-     * @param $type
-     */
-    public function __construct($label, $name, $type)
+    public function __construct($label, $name, $error, $type)
     {
         $this->label = $label;
         $this->name = $name;
         $this->type = $type;
-
+        $this->error = $error;
     }
 
 
@@ -32,6 +26,7 @@ class BaseInputField implements Component
             <?= $this->label ?>
         </label>
         <input type='<?= $this->type ?>' name='<?= $this->name ?>'>
+            <div class="error"><?= $this->error ?></div>
         </div>
         <?php
         return ob_get_clean();

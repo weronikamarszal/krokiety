@@ -9,18 +9,18 @@ class AddInvoiceComponent implements Component
     /**
      * AddInvoiceComponent constructor.
      */
-    public function __construct()
+    public function __construct($errors)
     {
         $this->fields = array(
-            new FileInputField('Upload skanu', 'plik'),
-            new NumberInputField('Numer faktury', 'numerFaktury'),
-            new NumberInputField('kwotaBrutto', 'kwotaBrutto'),
-            new NumberInputField('kwotaPodatkuVAT', 'kwotaPodatkuVAT'),
-            new NumberInputField('kwotaNetto', 'kwotaNetto'),
-            new TextInputField('nazwaKontrahenta', 'nazwaKontrahenta'),
-            new NumberInputField('VATIDKontrahenta', 'VATIDKontrahenta'),
-            new NumberInputField('kwotaNettoWWalucie', 'kwotaNettoWWalucie'),
-            new TextInputField('nazwaWaluty', 'nazwaWaluty'),
+            new FileInputField('Upload skanu', 'plik', $errors['plik']),
+            new NumberInputField('Numer faktury', 'numerFaktury', $errors['numerFaktury']),
+            new NumberInputField('kwotaBrutto', 'kwotaBrutto', $errors['kwotaBrutto']),
+            new NumberInputField('kwotaPodatkuVAT', 'kwotaPodatkuVAT', $errors['kwotaPodatkuVAT']),
+            new NumberInputField('kwotaNetto', 'kwotaNetto', $errors['kwotaNetto']),
+            new TextInputField('nazwaKontrahenta', 'nazwaKontrahenta', $errors['nazwaKontrahenta']),
+            new NumberInputField('VATIDKontrahenta', 'VATIDKontrahenta', $errors['VATIDKontrahenta']),
+            new NumberInputField('kwotaNettoWWalucie', 'kwotaNettoWWalucie', $errors['kwotaNettoWWalucie']),
+            new TextInputField('nazwaWaluty', 'nazwaWaluty', $errors['nazwaWaluty']),
         );
     }
 
@@ -28,7 +28,7 @@ class AddInvoiceComponent implements Component
     {
         ob_start();
         ?>
-        <form>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
             <?php foreach ($this->fields as $field): ?>
                 <?= $field ?>
             <?php endforeach; ?>
