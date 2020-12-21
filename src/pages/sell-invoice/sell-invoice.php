@@ -23,5 +23,5 @@ $values = array(
     )
 );
 
-displayMenu(new BaseListPage(new InvoiceListComponent($values),  new InvoiceSearchForm(), "Faktury Sprzedaży", new PaginatorComponent(sizeof($values))));
+displayMenu(new BaseListPage(new InvoiceListComponent($values),  new InvoiceSearchForm(), "Faktury Sprzedaży", new PaginatorComponent(sizeof($values)), '#'));
 ?>

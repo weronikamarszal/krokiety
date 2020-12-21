@@ -20,5 +20,6 @@ $values = array(
     )
 );
 
-displayMenu(new BaseListPage(new InvoiceListComponent($values),  new InvoiceSearchForm(), "Faktury Zakupu", new PaginatorComponent(sizeof($values))));
+$href = '/krokiety/src/pages/buy-invoice/add-buy-invoice.php';
+displayMenu(new BaseListPage(new InvoiceListComponent($values),  new InvoiceSearchForm(), "Faktury Zakupu", new PaginatorComponent(sizeof($values)),$href));
 ?>

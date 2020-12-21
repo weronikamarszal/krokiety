@@ -22,5 +22,5 @@ $values = array(
     )
 );
 
-displayMenu(new BaseListPage(new LicenceListComponent($values),  null, "Licencje", new PaginatorComponent(sizeof($values))));
+displayMenu(new BaseListPage(new LicenceListComponent($values),  null, "Licencje", new PaginatorComponent(sizeof($values)), '#'));
 ?>
