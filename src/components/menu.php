@@ -4,12 +4,12 @@ function displayMenu($page)
 {
     echo "
     <div>
-    <a href='/krokiety/src/pages/sell-invoice/sell-invoice.php'>Faktury Sprzedaży</a>
-    <a href='/krokiety/src/pages/buy-invoice/buy-invoice.php'>Faktury Zakupu</a>
-    <a href='/krokiety/src/pages/document/document.php'>Dokumenty</a>
-    <a href='/krokiety/src/pages/licence/licence.php'>Licencje</a>
-    <a href='/krokiety/src/pages/equipment/equipment.php'>Sprzęty</a>
-    <a href='/krokiety/src/pages/user/usersList.php'>Użytkownicy</a>
+    <a href='/krokiety/index.php/sell-invoice'>Faktury Sprzedaży</a>
+    <a href='/krokiety/index.php/buy-invoice'>Faktury Zakupu</a>
+    <a href='/krokiety/index.php/licence'>Licencje</a>
+    <a href='/krokiety/index.php/document'>Dokumenty</a>
+    <a href='/krokiety/index.php/equipment'>Sprzęty</a>
+    <a href='/krokiety/index.php/usersList'>Użytkownicy</a>
     
     </div>
         <div>" . $page . " </div>
