@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../components/component.interface.php';
+require_once __DIR__ . '/../../autoload.php';
 
 
 class LicenceListComponent implements Component
@@ -27,7 +27,7 @@ class LicenceListComponent implements Component
             <?php foreach ($this->values as $licence): ?>
                 <tr>
                     <td> <?= $licence["inventoryNumber"] ?> </td>
-                    <td> <?= $licence["serialKey"] ?> </td>
+                    <td> <?= $licence["serialNumber"] ?> </td>
                     <td> <?= $licence["purchaseDate"] ?> </td>
                 </tr>
             <?php endforeach; ?>

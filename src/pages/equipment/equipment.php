@@ -1,27 +1,42 @@
 <?php
-require_once __DIR__ . '/../../components/menu.php';
-require_once __DIR__ . '/../../components/list-page/BaseListPage.php';
-require_once __DIR__ . '/../../components/PaginatorComponent.php';
-require_once __DIR__ . '/EquipmentListComponent.php';
-require_once __DIR__ . '/EquipmentSearchForm.php';
+require_once __DIR__.'/../../autoload.php';
 
 $values = array(
     array(
-        "inventoryNumber" => 10,
-        "serialKey" => 5,
         "purchaseDate" => "2020-12-20T17:38:28.150Z",
+        "deviceName" => "nazwa",
+        "invNumber" => 1,
+        "serialNumber" => 1,
+        "notes" => "notatka",
+        "description" => "opis",
+        "nettValue" => 1,
+        "inPossessionOf" => 1,
     ),
     array(
-        "inventoryNumber" => 10,
-        "serialKey" => 5,
         "purchaseDate" => "2020-12-20T17:38:28.150Z",
+        "deviceName" => "nazwa",
+        "invNumber" => 1,
+        "serialNumber" => 1,
+        "notes" => "notatka",
+        "description" => "opis",
+        "nettValue" => 1,
+        "inPossessionOf" => 1,
     ),
     array(
-        "inventoryNumber" => 10,
-        "serialKey" => 5,
         "purchaseDate" => "2020-12-20T17:38:28.150Z",
+        "deviceName" => "nazwa",
+        "invNumber" => 1,
+        "serialNumber" => 1,
+        "notes" => "notatka",
+        "description" => "opis",
+        "nettValue" => 1,
+        "inPossessionOf" => 1,
     )
 );
 
-displayMenu(new BaseListPage(new EquipmentListComponent($values),  new EquipmentSearchForm(), "Sprzęty", new PaginatorComponent(sizeof($values)), '#'));
+displayMenu(new BaseListPage(new EquipmentListComponent($values),
+    new EquipmentSearchForm(),
+    "Sprzęty",
+    new PaginatorComponent(sizeof($values)),
+    '/krokiety/src/pages/equipment/add-equipment.php'));
 ?>

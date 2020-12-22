@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../components/component.interface.php';
+require_once __DIR__ . '/../../autoload.php';
 
 
 class EquipmentListComponent implements Component
@@ -18,17 +18,17 @@ class EquipmentListComponent implements Component
         <table>
             <thead>
             <tr>
-                <th> Numer inwerntarzowy</th>
-                <th> Klucz seryjny</th>
+                <th> Nazwa</th>
+                <th> Numer seryjny</th>
                 <th> Data zakupu</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($this->values as $licence): ?>
+            <?php foreach ($this->values as $equipment): ?>
                 <tr>
-                    <td> <?= $licence["inventoryNumber"] ?> </td>
-                    <td> <?= $licence["serialKey"] ?> </td>
-                    <td> <?= $licence["purchaseDate"] ?> </td>
+                    <td> <?= $equipment["deviceName"] ?> </td>
+                    <td> <?= $equipment["serialNumber"] ?> </td>
+                    <td> <?= $equipment["purchaseDate"] ?> </td>
                 </tr>
             <?php endforeach; ?>
 

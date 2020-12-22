@@ -1,10 +1,6 @@
 <?php
-require_once __DIR__ . '/../../components/menu.php';
-require_once __DIR__ . '/../../components/list-page/BaseListPage.php';
-require_once __DIR__ . '/../../components/PaginatorComponent.php';
-require_once __DIR__ . '/UserListComponent.php';
-require_once __DIR__ . '/../../components/databaseConnection.php';
-require_once __DIR__ . '/User.php';
+require_once __DIR__ . '/../../autoload.php';
+
 
 $usersList=[];
 
@@ -41,7 +37,11 @@ function insertUser($data,$dbh){
         (:login,:firstName,:surname,:phoneNumber,:role,:email)");
         $stmt->execute($data);
 }
-/*insertUser($data,$dbh);*/
+//insertUser($data,$dbh);
 
-displayMenu(new BaseListPage(new UserListComponent($usersList),  null, "Użytkownicy", new PaginatorComponent(sizeof($usersList)), '#'));
+displayMenu(new BaseListPage(new UserListComponent($usersList),
+    null,
+    "Użytkownicy",
+    new PaginatorComponent(sizeof($usersList)),
+    '/krokiety/src/pages/user/add-user.php'));
 ?>

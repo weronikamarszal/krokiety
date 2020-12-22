@@ -1,6 +1,6 @@
 <?php
-require_once '../../components/menu.php';
-require_once '../../components/list-page/BaseListPage.php';
+require_once __DIR__ . '/../../autoload.php';
+
 
 displayMenu("");
 ?>
