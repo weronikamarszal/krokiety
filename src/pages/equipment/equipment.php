@@ -1,24 +1,42 @@
 <?php
-require_once __DIR__ . '/../../autoload.php';
-
+require_once __DIR__.'/../../autoload.php';
 
 $values = array(
     array(
-        "inventoryNumber" => 10,
-        "serialKey" => 5,
         "purchaseDate" => "2020-12-20T17:38:28.150Z",
+        "deviceName" => "nazwa",
+        "invNumber" => 1,
+        "serialNumber" => 1,
+        "notes" => "notatka",
+        "description" => "opis",
+        "nettValue" => 1,
+        "inPossessionOf" => 1,
     ),
     array(
-        "inventoryNumber" => 10,
-        "serialKey" => 5,
         "purchaseDate" => "2020-12-20T17:38:28.150Z",
+        "deviceName" => "nazwa",
+        "invNumber" => 1,
+        "serialNumber" => 1,
+        "notes" => "notatka",
+        "description" => "opis",
+        "nettValue" => 1,
+        "inPossessionOf" => 1,
     ),
     array(
-        "inventoryNumber" => 10,
-        "serialKey" => 5,
         "purchaseDate" => "2020-12-20T17:38:28.150Z",
+        "deviceName" => "nazwa",
+        "invNumber" => 1,
+        "serialNumber" => 1,
+        "notes" => "notatka",
+        "description" => "opis",
+        "nettValue" => 1,
+        "inPossessionOf" => 1,
     )
 );
 
-displayMenu(new BaseListPage(new EquipmentListComponent($values),  new EquipmentSearchForm(), "Sprzęty", new PaginatorComponent(sizeof($values)), '#'));
+displayMenu(new BaseListPage(new EquipmentListComponent($values),
+    new EquipmentSearchForm(),
+    "Sprzęty",
+    new PaginatorComponent(sizeof($values)),
+    '/krokiety/src/pages/equipment/add-equipment.php'));
 ?>
