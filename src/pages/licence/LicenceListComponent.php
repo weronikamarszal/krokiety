@@ -27,7 +27,7 @@ class LicenceListComponent implements Component
             <?php foreach ($this->values as $licence): ?>
                 <tr>
                     <td> <?= $licence["inventoryNumber"] ?> </td>
-                    <td> <?= $licence["serialKey"] ?> </td>
+                    <td> <?= $licence["serialNumber"] ?> </td>
                     <td> <?= $licence["purchaseDate"] ?> </td>
                 </tr>
             <?php endforeach; ?>
