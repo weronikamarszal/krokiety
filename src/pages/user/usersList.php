@@ -37,7 +37,11 @@ function insertUser($data,$dbh){
         (:login,:firstName,:surname,:phoneNumber,:role,:email)");
         $stmt->execute($data);
 }
-/*insertUser($data,$dbh);*/
+//insertUser($data,$dbh);
 
-displayMenu(new BaseListPage(new UserListComponent($usersList),  null, "Użytkownicy", new PaginatorComponent(sizeof($usersList)), '#'));
+displayMenu(new BaseListPage(new UserListComponent($usersList),
+    null,
+    "Użytkownicy",
+    new PaginatorComponent(sizeof($usersList)),
+    '/krokiety/src/pages/user/add-user.php'));
 ?>
