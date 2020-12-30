@@ -63,7 +63,7 @@ displayMenu(
         new InvoiceSearchForm(),
         "Faktury Sprzedaży",
         new PaginatorComponent(sizeof($sellInvoicesList)),
-        '/krokiety/src/pages/sell-invoice/add-sell-invoice.php'));
+        '/krokiety/index.php/add-sell-invoice'));
 
 /*displayMenu(
     new BaseListPage(

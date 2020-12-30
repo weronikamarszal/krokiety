@@ -17,6 +17,18 @@ if ('/krokiety/index.php' === $uri) {
     require __DIR__ . '/src/pages/sell-invoice/sell-invoice.php';
 } elseif ('/krokiety/index.php/usersList' === $uri) {
     require __DIR__ . '/src/pages/user/usersList.php';
+} elseif ('/krokiety/index.php/add-buy-invoice' === $uri) {
+    require __DIR__ . '/src/pages/buy-invoice/add-buy-invoice.php';
+} elseif ('/krokiety/index.php/add-document' === $uri) {
+    require __DIR__ . '/src/pages/document/add-document.php';
+} elseif ('/krokiety/index.php/add-equipment' === $uri) {
+    require __DIR__ . '/src/pages/equipment/add-equipment.php';
+} elseif ('/krokiety/index.php/add-licence' === $uri) {
+    require __DIR__ . '/src/pages/licence/add-licence.php';
+} elseif ('/krokiety/index.php/add-sell-invoice' === $uri) {
+    require __DIR__ . '/src/pages/sell-invoice/add-sell-invoice.php';
+} elseif ('/krokiety/index.php/add-user' === $uri) {
+    require __DIR__ . '/src/pages/user/add-user.php';
 }
 
 ?>

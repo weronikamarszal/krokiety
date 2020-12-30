@@ -24,5 +24,5 @@ displayMenu(new BaseListPage(new LicenceListComponent($values),
     null,
     "Licencje",
     new PaginatorComponent(sizeof($values)),
-    '/krokiety/src/pages/licence/add-licence.php'));
+    '/krokiety/index.php/add-licence'));
 ?>

@@ -38,5 +38,5 @@ displayMenu(new BaseListPage(new EquipmentListComponent($values),
     new EquipmentSearchForm(),
     "Sprzęty",
     new PaginatorComponent(sizeof($values)),
-    '/krokiety/src/pages/equipment/add-equipment.php'));
+    '/krokiety/index.php/add-equipment'));
 ?>
