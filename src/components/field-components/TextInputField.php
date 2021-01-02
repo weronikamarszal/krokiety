@@ -8,8 +8,8 @@ class TextInputField extends BaseInputField
      * @param $label
      * @param $name
      */
-    public function __construct($label, $name, $error)
+    public function __construct($label, $name, $error, $readonly = false, $value = null)
     {
-        parent::__construct($label, $name, $error, "text");
+        parent::__construct($label, $name, $error, "text", $readonly, $value);
     }
 }

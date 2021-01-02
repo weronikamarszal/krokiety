@@ -29,6 +29,8 @@ if ('/krokiety/index.php' === $uri) {
     require __DIR__ . '/src/pages/sell-invoice/add-sell-invoice.php';
 } elseif ('/krokiety/index.php/add-user' === $uri) {
     require __DIR__ . '/src/pages/user/add-user.php';
+} elseif ('/krokiety/index.php/sell-invoice-details' === $uri) {
+    require __DIR__ . '/src/pages/sell-invoice/sell-invoice-details.php';
 }
 
 ?>

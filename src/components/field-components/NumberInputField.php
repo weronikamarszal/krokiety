@@ -8,8 +8,8 @@ class NumberInputField extends BaseInputField
      * @param $label
      * @param $name
      */
-    public function __construct($label, $name, $error)
+    public function __construct($label, $name, $error, $readonly = false, $value = null)
     {
-        parent::__construct($label, $name, $error, "number");
+        parent::__construct($label, $name, $error, "number", $readonly, $value);
     }
 }

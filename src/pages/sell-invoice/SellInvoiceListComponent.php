@@ -29,6 +29,7 @@ class SellInvoiceListComponent implements Component
                 <th> Kwota netto w walucie</th>
                 <th> Nazwa waluty</th>
                 <th> Path</th>
+                <th> Szczegóły</th>
 
             </tr>
             </thead>
@@ -45,6 +46,7 @@ class SellInvoiceListComponent implements Component
                     <td> <?= $sellInvoice->getNetAmountInCurrency() ?> </td>
                     <td> <?= $sellInvoice->getCurrencyName() ?> </td>
                     <td> <?= $sellInvoice->getPath() ?> </td>
+                    <td> <a href="/krokiety/index.php/sell-invoice-details?id=<?= $sellInvoice->getId() ?>"> Pokaż</a> </td>
 
                 </tr>
             <?php endforeach; ?>
