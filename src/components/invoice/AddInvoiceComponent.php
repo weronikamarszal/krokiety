@@ -10,7 +10,6 @@ class AddInvoiceComponent implements Component
     public function __construct($errors, $value = null, $readonly = false)
     {
         $this->readonly = $readonly;
-        echo $errors['numerFaktury'];
         $this->fields = array(
             new FileInputField('Upload skanu', 'plik', $errors['plik']),
             new NumberInputField('Numer faktury', 'invoiceNumber', $errors['invoiceNumber'], $readonly, $value->invoiceNumber),

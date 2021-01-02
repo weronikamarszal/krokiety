@@ -4,13 +4,16 @@ require_once __DIR__ . '/../../autoload.php';
 class AddDocumentComponent implements Component
 {
     protected $fields;
+    protected $readonly;
 
-    public function __construct($errors)
+    public function __construct($errors, $value = null, $readonly = false)
     {
+        $this->readonly = $readonly;
         $this->fields = array(
-            new DateInputField('Data dokumentu', 'documentDate', $errors['documentDate']),
-            new TextInputField('Notatki', 'notes', $errors['notes']),
-            new NumberInputField('Strony dokumenty', 'pagesNumber', $errors['pagesNumber']),
+            new FileInputField('Upload skanu', 'plik', $errors['plik']),
+            new DateInputField('Data dokumentu', 'documentDate', $errors['documentDate'], $readonly, $value->documentDate),
+            new TextInputField('Notatki', 'notes', $errors['notes'], $readonly, $value->notes),
+            new NumberInputField('Strony dokumenty', 'pagesNumber', $errors['pagesNumber'], $readonly, $value->pagesNumber),
         );
     }
 
