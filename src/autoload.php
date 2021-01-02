@@ -30,3 +30,5 @@ require_once __DIR__ . '/components/field-components/TextInputField.php';
 require_once __DIR__ . '/components/field-components/FileInputField.php';
 require_once __DIR__ . '/components/field-components/DateInputField.php';
 require_once __DIR__ . '/pages/invoice-shared/InvoiceValidation.php';
+require_once __DIR__ . '/pages/sell-invoice/SellInvoice.php';
+require_once __DIR__ . '/pages/sell-invoice/SellInvoiceListComponent.php';

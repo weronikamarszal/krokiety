@@ -20,7 +20,7 @@ $values = array(
     )
 );
 
-$href = '/krokiety/src/pages/buy-invoice/add-buy-invoice.php';
+$href = '/krokiety/index.php/add-buy-invoice';
 displayMenu(new BaseListPage(new InvoiceListComponent($values),
     new InvoiceSearchForm(),
     "Faktury Zakupu",

@@ -1,23 +1,19 @@
 <?php
 require_once __DIR__ . '/../../autoload.php';
 
-class BaseInputField implements Component
+class BaseField implements Component
 {
     protected $label;
     protected $name;
     protected $type;
     protected $error;
-    protected $readonly;
-    protected $value;
 
-    public function __construct($label, $name, $error, $type, $readonly = false, $value = null)
+    public function __construct($label, $name, $error, $type)
     {
         $this->label = $label;
         $this->name = $name;
         $this->type = $type;
         $this->error = $error;
-        $this->readonly = $readonly;
-        $this->value = $value;
     }
 
 
@@ -29,8 +25,7 @@ class BaseInputField implements Component
             <label>
                 <?= $this->label ?>
             </label>
-            <input type='<?= $this->type ?>' name='<?= $this->name ?>' <?= $this->readonly ? 'readonly' : '' ?>
-                   value="<?= $this->value ?>">
+            <input type='<?= $this->type ?>' name='<?= $this->name ?>' readonly>
             <div class="error"><?= $this->error ?></div>
         </div>
         <?php

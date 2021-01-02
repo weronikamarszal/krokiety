@@ -4,12 +4,12 @@
 class SellInvoice
 {
     private $id;
-    private $sellInvoiceNumber;
+    private $invoiceNumber;
     private $grossAmount;
-    private $vatTaxAmount;
+    private $VATTaxAmount;
     private $netAmount;
     private $contractorsName;
-    private $contractorsVATId;
+    private $contractorsVatId;
     private $netAmountInCurrency;
     private $currencyName;
     private $path;
@@ -33,17 +33,17 @@ class SellInvoice
     /**
      * @return mixed
      */
-    public function getSellInvoiceNumber()
+    public function getInvoiceNumber()
     {
-        return $this->sellInvoiceNumber;
+        return $this->invoiceNumber;
     }
 
     /**
-     * @param mixed $sellInvoiceNumber
+     * @param mixed $invoiceNumber
      */
-    public function setSellInvoiceNumber($sellInvoiceNumber)
+    public function setInvoiceNumber($invoiceNumber)
     {
-        $this->sellInvoiceNumber = $sellInvoiceNumber;
+        $this->invoiceNumber = $invoiceNumber;
     }
 
     /**
@@ -65,17 +65,17 @@ class SellInvoice
     /**
      * @return mixed
      */
-    public function getVatTaxAmount()
+    public function getVATTaxAmount()
     {
-        return $this->vatTaxAmount;
+        return $this->VATTaxAmount;
     }
 
     /**
-     * @param mixed $vatTaxAmount
+     * @param mixed $VATTaxAmount
      */
-    public function setVatTaxAmount($vatTaxAmount)
+    public function setVATTaxAmount($VATTaxAmount)
     {
-        $this->vatTaxAmount = $vatTaxAmount;
+        $this->VATTaxAmount = $VATTaxAmount;
     }
 
     /**
@@ -113,17 +113,17 @@ class SellInvoice
     /**
      * @return mixed
      */
-    public function getContractorsVATId()
+    public function getContractorsVatId()
     {
-        return $this->contractorsVATId;
+        return $this->contractorsVatId;
     }
 
     /**
-     * @param mixed $contractorsVATId
+     * @param mixed $contractorsVatId
      */
-    public function setContractorsVATId($contractorsVATId)
+    public function setContractorsVatId($contractorsVatId)
     {
-        $this->contractorsVATId = $contractorsVATId;
+        $this->contractorsVatId = $contractorsVatId;
     }
 
     /**

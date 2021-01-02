@@ -1,12 +1,6 @@
 <?php
-require_once __DIR__ . '/../../components/menu.php';
-require_once __DIR__ . '/../../components/list-page/BaseListPage.php';
-require_once __DIR__ . '/../../components/PaginatorComponent.php';
-require_once __DIR__ . '/../../components/component.interface.php';
-require_once __DIR__ . '/../../components/invoice/InvoiceSearchForm.php';
-require_once __DIR__ . '/SellInvoice.php';
-require_once __DIR__ . '/SellInvoiceListComponent.php';
-require_once __DIR__ . '/../../components/databaseConnection.php';
+require_once __DIR__ . '/../../autoload.php';
+
 
 
 $sellInvoicesList=[];
@@ -18,14 +12,14 @@ try{
     foreach ($sellInvoices as $s) {
         $sellInvoice = new SellInvoice();
         $sellInvoice->setId($s['id']);
-        $sellInvoice->setSellInvoiceNumber($s['numerFaktury']);
-        $sellInvoice->setGrossAmount($s['kwotaBrutto']);
-        $sellInvoice->setVatTaxAmount($s['kwotaPodatkuVAT']);
-        $sellInvoice->setNetAmount($s['kwotaNetto']);
-        $sellInvoice->setContractorsName($s['nazwaKontrahenta']);
-        $sellInvoice->setContractorsVATId($s['VATIDKontrahenta']);
-        $sellInvoice->setNetAmountInCurrency($s['kwotaNettoWWalucie']);
-        $sellInvoice->setCurrencyName($s['nazwaWaluty']);
+        $sellInvoice->setInvoiceNumber($s['invoiceNumber']);
+        $sellInvoice->setGrossAmount($s['grossAmount']);
+        $sellInvoice->setVATTaxAmount($s['VATTaxAmount']);
+        $sellInvoice->setNetAmount($s['netAmount']);
+        $sellInvoice->setContractorsName($s['contractorsName']);
+        $sellInvoice->setContractorsVatId($s['contractorsVatId']);
+        $sellInvoice->setNetAmountInCurrency($s['netAmountInCurrency']);
+        $sellInvoice->setCurrencyName($s['currencyName']);
         $sellInvoice->setPath($s['path']);
 
 
@@ -63,7 +57,7 @@ displayMenu(
         new InvoiceSearchForm(),
         "Faktury Sprzedaży",
         new PaginatorComponent(sizeof($sellInvoicesList)),
-        '/krokiety/src/pages/sell-invoice/add-sell-invoice.php'));
+        '/krokiety/index.php/add-sell-invoice'));
 
 /*displayMenu(
     new BaseListPage(
