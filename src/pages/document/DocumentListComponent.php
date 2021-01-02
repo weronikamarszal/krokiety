@@ -30,7 +30,7 @@ class DocumentListComponent implements Component
                     <td> <?= $document["documentDate"] ?> </td>
                     <td> <?= $document["notes"] ?> </td>
                     <td> <?= $document["pagesNumber"] ?> </td>
-                    <td><a href='#'> Pokaż</a></td>
+                    <td><a href="/krokiety/index.php/document-details?id=<?=$document["id"] ?>"> Pokaż</a></td>
                 </tr>
             <?php endforeach; ?>
 
