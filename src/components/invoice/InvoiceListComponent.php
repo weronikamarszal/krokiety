@@ -30,7 +30,7 @@ class InvoiceListComponent implements Component
                     <td> <?= $invoice["id"] ?> </td>
                     <td> <?= $invoice["VAT"] ?> </td>
                     <td> <?= $invoice["netto"] ?> </td>
-                    <td><a href='#'> Pokaż</a></td>
+                    <td><a href="/krokiety/index.php/buy-invoice-details?id=<?= $invoice["id"] ?>"> Pokaż</a></td>
                 </tr>
             <?php endforeach; ?>
 
