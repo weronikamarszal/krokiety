@@ -37,12 +37,12 @@ class SellInvoiceListComponent implements Component
             <?php foreach ($this->values as $sellInvoice): ?>
                 <tr>
                     <td> <?= $sellInvoice->getId() ?> </td>
-                    <td> <?= $sellInvoice->getSellInvoiceNumber() ?> </td>
+                    <td> <?= $sellInvoice->getInvoiceNumber() ?> </td>
                     <td> <?= $sellInvoice->getGrossAmount() ?> </td>
-                    <td> <?= $sellInvoice->getVatTaxAmount() ?> </td>
+                    <td> <?= $sellInvoice->getVATTaxAmount() ?> </td>
                     <td> <?= $sellInvoice->getNetAmount() ?> </td>
                     <td> <?= $sellInvoice->getContractorsName() ?> </td>
-                    <td> <?= $sellInvoice->getContractorsVATId() ?> </td>
+                    <td> <?= $sellInvoice->getContractorsVatId() ?> </td>
                     <td> <?= $sellInvoice->getNetAmountInCurrency() ?> </td>
                     <td> <?= $sellInvoice->getCurrencyName() ?> </td>
                     <td> <?= $sellInvoice->getPath() ?> </td>
