@@ -20,6 +20,7 @@ class PaginatorComponent implements Component
     public function __toString()
     {
         $pages = ceil($this->totalCount / $this->pageSize);
+        $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
         ob_start();
         ?>
@@ -31,7 +32,7 @@ class PaginatorComponent implements Component
             </button>
             <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
                 <?php for ($i = 1; $i <= $pages; $i++): ?>
-                    <a class='dropdown-item' href='#'> <?= $i ?></a>
+                    <a class='dropdown-item' href='<?= $uri ?>?numerStrony=<?= $i - 1 ?>'> <?= $i ?></a>
                 <?php endfor; ?>
             </div>
         </div>
