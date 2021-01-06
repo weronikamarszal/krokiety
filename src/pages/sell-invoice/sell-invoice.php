@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../autoload.php';
 global $dbh;
 
 $sellInvoicesList = [];
-$pagination = new Pagination();
+$pagination = new Pagination("salesinvoices");
 
 try {
     $stmt = $dbh->prepare("SELECT * FROM salesinvoices ORDER BY id ASC {$pagination->getQueryPart()}");

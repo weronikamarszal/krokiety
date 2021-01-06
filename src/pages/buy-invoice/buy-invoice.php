@@ -1,29 +1,25 @@
 <?php
+require_once __DIR__ . '/../../autoload.php';
+global $dbh;
 
-require_once __DIR__.'/../../autoload.php';
+$buyInvoicesList = [];
+$pagination = new Pagination("purchaseinvoices");
 
-$values = array(
-    array(
-        "id" => 10,
-        "VAT" => 5,
-        "netto" => 100,
-    ),
-    array(
-        "id" => 10,
-        "VAT" => 5,
-        "netto" => 100,
-    ),
-    array(
-        "id" => 10,
-        "VAT" => 5,
-        "netto" => 100,
-    )
-);
+try {
+    $stmt = $dbh->prepare("SELECT * FROM purchaseinvoices ORDER BY id ASC {$pagination->getQueryPart()}");
+    $stmt->execute();
+    $buyInvoicesList = $stmt->fetchAll(PDO::FETCH_CLASS, "BuyInvoice");
+} catch (Exception $e) {
+    throw new Exception($e->getMessage());
+}
 
 $href = '/krokiety/index.php/add-buy-invoice';
-displayMenu(new BaseListPage(new InvoiceListComponent($values),
+displayMenu(new BaseListPage(
+    new SellInvoiceListComponent($buyInvoicesList),
     new InvoiceSearchForm(),
     "Faktury Zakupu",
-    new PaginatorComponent(sizeof($values)),
+    new PaginatorComponent($pagination->getSize()),
     $href));
+?>
+
 ?>

@@ -32,7 +32,7 @@ class PaginatorComponent implements Component
             </button>
             <div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
                 <?php for ($i = 1; $i <= $pages; $i++): ?>
-                    <a class='dropdown-item' href='<?= $uri ?>?numerStrony=<?= $i - 1 ?>'> <?= $i ?></a>
+                    <a class='dropdown-item' href='<?= $uri ?>?numerStrony=<?= $i-1 ?>'> <?= $i ?></a>
                 <?php endfor; ?>
             </div>
         </div>

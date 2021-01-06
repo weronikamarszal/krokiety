@@ -35,3 +35,4 @@ require_once __DIR__ . '/pages/sell-invoice/SellInvoiceListComponent.php';
 require_once __DIR__ . '/../bootstrap/use-bootstrap.php';
 require_once __DIR__ . '/database/Pagination.php';
 require_once __DIR__ . '/util/printTop.php';
+require_once __DIR__ . '/pages/buy-invoice/BuyInvoice.php';

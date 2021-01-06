@@ -18,13 +18,13 @@ class Pagination
         return "LIMIT $this->limit OFFSET $this->offset";
     }
 
-    public function __construct()
+    public function __construct($table)
     {
         $pageNumber = $_GET["numerStrony"];
         $this->offset = $pageNumber * $this->limit;
 
         global $dbh;
-        $stmt = $dbh->prepare("SELECT COUNT(*) FROM salesinvoices");
+        $stmt = $dbh->prepare("SELECT COUNT(*) FROM $table");
         $stmt->execute();
         $this->size = $stmt->fetch()[0];
     }
