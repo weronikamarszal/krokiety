@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/components/databaseConnection.php';
 require_once __DIR__ . "/components/component.interface.php";
 require_once __DIR__ . '/components/menu.php';
 require_once __DIR__ . '/components/list-page/BaseListPage.php';
@@ -23,7 +24,6 @@ require_once __DIR__ . '/pages/user/UserValidation.php';
 require_once __DIR__ . '/pages/user/AddUserComponent.php';
 require_once __DIR__ . '/components/invoice/InvoiceSearchForm.php';
 require_once __DIR__ . '/components/BaseAddPage.php';
-require_once __DIR__ . '/components/databaseConnection.php';
 require_once __DIR__ . '/components/field-components/BaseInputField.php';
 require_once __DIR__ . '/components/field-components/NumberInputField.php';
 require_once __DIR__ . '/components/field-components/TextInputField.php';
@@ -33,3 +33,6 @@ require_once __DIR__ . '/pages/invoice-shared/InvoiceValidation.php';
 require_once __DIR__ . '/pages/sell-invoice/SellInvoice.php';
 require_once __DIR__ . '/pages/sell-invoice/SellInvoiceListComponent.php';
 require_once __DIR__ . '/../bootstrap/use-bootstrap.php';
+require_once __DIR__ . '/database/Pagination.php';
+require_once __DIR__ . '/util/printTop.php';
+require_once __DIR__ . '/pages/buy-invoice/BuyInvoice.php';
