@@ -12,6 +12,7 @@ class BuyInvoice
     private $contractorsVatId;
     private $netAmountInCurrency;
     private $currencyName;
+    private $invoiceDate;
     private $path;
 
     /**
@@ -156,6 +157,22 @@ class BuyInvoice
     public function setCurrencyName($currencyName)
     {
         $this->currencyName = $currencyName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoiceDate()
+    {
+        return $this->invoiceDate;
+    }
+
+    /**
+     * @param mixed $invoiceDate
+     */
+    public function setInvoiceDate($invoiceDate)
+    {
+        $this->invoiceDate = $invoiceDate;
     }
 
     /**
