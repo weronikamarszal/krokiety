@@ -12,6 +12,7 @@ class SellInvoice
     private $contractorsVatId;
     private $netAmountInCurrency;
     private $currencyName;
+    private $invoiceDate;
     private $path;
 
     /**
@@ -165,7 +166,20 @@ class SellInvoice
     {
         return $this->path;
     }
-
+    /**
+     * @return mixed
+     */
+    public function getInvoiceDate()
+    {
+        return $this->invoiceDate;
+    }
+    /**
+     * @param mixed $invoiceDate
+     */
+    public function setInvoiceDate($invoiceDate)
+    {
+        $this->invoiceDate = $invoiceDate;
+    }
     /**
      * @param mixed $path
      */

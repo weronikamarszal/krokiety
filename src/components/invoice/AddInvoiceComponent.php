@@ -17,6 +17,7 @@ class AddInvoiceComponent extends BaseFormComponent implements Component
             new NumberInputField('contractorsVatId', 'contractorsVatId', $errors['contractorsVatId'], $readonly, $value->contractorsVatId),
             new NumberInputField('netAmountInCurrency', 'netAmountInCurrency', $errors['netAmountInCurrency'], $readonly, $value->netAmountInCurrency),
             new TextInputField('currencyName', 'currencyName', $errors['currencyName'], $readonly, $value->currencyName),
+            new DateInputField('invoiceDate', 'invoiceDate', $errors['invoiceDate'], $readonly, $value->invoiceDate),
         );
     }
 
