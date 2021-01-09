@@ -2,11 +2,8 @@
 require_once __DIR__ . '/../../autoload.php';
 
 
-class AddInvoiceComponent implements Component
+class AddInvoiceComponent extends BaseFormComponent implements Component
 {
-    protected $fields;
-    protected $readonly;
-
     public function __construct($errors, $value = null, $readonly = false)
     {
         $this->readonly = $readonly;
@@ -23,23 +20,5 @@ class AddInvoiceComponent implements Component
         );
     }
 
-    public function __toString()
-    {
-        ob_start();
-        ?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
-              enctype="multipart/form-data">
-            <?php foreach ($this->fields as $field): ?>
-                <?= $field ?>
-            <?php endforeach; ?>
 
-            <?php
-            if (!$this->readonly) { ?>
-                <input type='submit'>
-            <?php } ?>
-
-        </form>
-        <?php
-        return ob_get_clean();
-    }
 }

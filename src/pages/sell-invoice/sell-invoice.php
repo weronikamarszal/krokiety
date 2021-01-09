@@ -16,7 +16,7 @@ try {
 displayMenu(
     new BaseListPage(
         new SellInvoiceListComponent($sellInvoicesList),
-        new InvoiceSearchForm(),
+        new InvoiceSearchForm([]),
         "Faktury Sprzedaży",
         new PaginatorComponent($pagination->getSize()),
         '/krokiety/index.php/add-sell-invoice'));

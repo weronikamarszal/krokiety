@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/components/databaseConnection.php';
 require_once __DIR__ . "/components/component.interface.php";
+require_once __DIR__ . '/components/BaseFormComponent.php';
 require_once __DIR__ . '/components/menu.php';
 require_once __DIR__ . '/components/list-page/BaseListPage.php';
 require_once __DIR__ . '/components/PaginatorComponent.php';
