@@ -5,9 +5,20 @@ global $dbh;
 $sellInvoicesList = [];
 $pagination = new Pagination("salesinvoices");
 
+echoTop($_GET["id"]);
+
 try {
-    $stmt = $dbh->prepare("SELECT * FROM salesinvoices ORDER BY id ASC {$pagination->getQueryPart()}");
-    $stmt->execute();
+    $condition = "";
+    if (isset($_GET["id"])) {
+        $condition = $condition . " id=:id ";
+    }
+    if (!empty($condition)) {
+        $condition = " WHERE " . $condition;
+    }
+
+    $stmt = $dbh->prepare("SELECT * FROM salesinvoices {$condition} ORDER BY id ASC {$pagination->getQueryPart()}");
+    echoTop($stmt, 1);
+    $stmt->execute($_GET);
     $sellInvoicesList = $stmt->fetchAll(PDO::FETCH_CLASS, "SellInvoice");
 } catch (Exception $e) {
     throw new Exception($e->getMessage());

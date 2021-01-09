@@ -16,7 +16,7 @@ try {
 $href = '/krokiety/index.php/add-buy-invoice';
 displayMenu(new BaseListPage(
     new SellInvoiceListComponent($buyInvoicesList),
-    new InvoiceSearchForm(),
+    new InvoiceSearchForm([]),
     "Faktury Zakupu",
     new PaginatorComponent($pagination->getSize()),
     $href));
