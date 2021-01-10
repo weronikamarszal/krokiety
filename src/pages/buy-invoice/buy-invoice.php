@@ -4,7 +4,7 @@ global $dbh;
 
 $buyInvoicesList = [];
 $pagination = new Pagination("purchaseinvoices");
-$searchValues = new SearchValues(["id", "invoiceNumber", "contractorsVatId", "contractorsName"]);
+$searchValues = new SearchValues(["id", "invoiceNumber", "contractorsVatId", "contractorsName", ["field" => "invoiceDate_from", "dbField" => "invoiceDate", "compare" => ">="], ["field" => "invoiceDate_to", "dbField" => "invoiceDate", "compare" => "<="]]);
 
 try {
     $stmt = $dbh->prepare("SELECT * FROM purchaseinvoices {$searchValues->getCondition()} ORDER BY id ASC {$pagination->getQueryPart()}");
