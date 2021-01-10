@@ -4,7 +4,6 @@ require_once __DIR__ . '/src/autoload.php';
 error_reporting(error_reporting() & ~E_NOTICE);
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-bootstrapHead();
 
 if ('/krokiety/index.php' === $uri) {
     displayMenu("");
@@ -40,5 +39,5 @@ if ('/krokiety/index.php' === $uri) {
     require __DIR__ . '/src/pages/document/document-details.php';
 }
 
-bootstrapFoot();
+
 ?>

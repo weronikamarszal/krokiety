@@ -12,8 +12,8 @@ class InvoiceSearchForm extends BaseFormComponent implements Component
             new TextInputField('Numer faktury', 'invoiceNumber', $errors['invoiceNumber'], false, $value['invoiceNumber']),
             new TextInputField('Vat ID kontrahenta', 'contractorsVatId', $errors['contractorsVatId'], false, $value['contractorsVatId']),
             new TextInputField('Nazwa kontrahenta', 'contractorsName', $errors['contractorsName'], false, $value['contractorsName']),
-//            new DateInputField('Email', 'email', $errors['email']),
-//            new DateInputField('Email', 'email', $errors['email']),
+            new DateInputField('Data od', 'invoiceDate_from', $errors['invoiceDate_from'], false, $value['invoiceDate_from']),
+            new DateInputField('Data do', 'invoiceDate_to', $errors['invoiceDate_to'], false, $value['invoiceDate_to']),
         );
     }
 

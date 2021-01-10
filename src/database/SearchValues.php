@@ -10,6 +10,7 @@ class SearchValues
     {
         return $this->condition;
     }
+
     public function getSearchValues()
     {
         return $this->searchValues;
@@ -22,9 +23,14 @@ class SearchValues
         $AND = " AND ";
 
         foreach ($parameterNames as $name) {
-            if (!empty($_GET[$name])) {
-                $condition = $condition . $AND . " $name=:$name ";
-                $searchValues[$name] = $_GET[$name];
+            if (gettype($name) === "string") {
+                $fieldConfig = ["field" => $name, "dbField" => $name, "compare" => "="];
+            } else {
+                $fieldConfig = $name;
+            }
+            if (!empty($_GET[$fieldConfig['field']])) {
+                $condition = $condition . $AND . " {$fieldConfig['dbField']}{$fieldConfig['compare']}:{$fieldConfig['field']} ";
+                $searchValues[$fieldConfig['field']] = $_GET[$fieldConfig['field']];
             }
         }
         if (!empty($condition)) {
