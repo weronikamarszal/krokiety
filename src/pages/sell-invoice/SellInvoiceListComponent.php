@@ -45,6 +45,7 @@ class SellInvoiceListComponent implements Component
                     <td> <?= $sellInvoice->getContractorsVatId() ?> </td>
                     <td> <?= $sellInvoice->getNetAmountInCurrency() ?> </td>
                     <td> <?= $sellInvoice->getCurrencyName() ?> </td>
+                    <td> <?= $sellInvoice->getInvoiceDate() ?> </td>
                     <td> <?= $sellInvoice->getPath() ?> </td>
                     <td> <a href="/krokiety/index.php/sell-invoice-details?id=<?= $sellInvoice->getId() ?>"> Pokaż</a> </td>
 
