@@ -38,6 +38,8 @@ if ('/krokiety/index.php' === $uri) {
     require __DIR__ . '/src/pages/buy-invoice/buy-invoice-details.php';
 } elseif ('/krokiety/index.php/document-details' === $uri) {
     require __DIR__ . '/src/pages/document/document-details.php';
+} elseif ('/krokiety/index.php/summary' === $uri) {
+    require __DIR__ . '/src/pages/summary/summary.php';
 }
 
 bootstrapFoot();
