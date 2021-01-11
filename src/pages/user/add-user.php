@@ -6,6 +6,47 @@ $errors = $validator->getEmptyValidations();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = $validator->validate($_POST, $_FILES);
 }
-
-
+function insertUser($data,$dbh){
+    $stmt= $dbh->prepare("INSERT INTO users (login, firstName,surname, password,phoneNumber,role,email) VALUES 
+        (:login,:firstName,:surname,:password,:phoneNumber,:role,:email)");
+    $stmt->execute($data);
+}
 displayMenu(new BaseAddPage("Dodaj użytkownika", new AddUserComponent($errors)));
+
+if (isset($_POST['firstName'])) {
+    function createLogin()
+    {
+        $name = iconv('UTF-8', 'ASCII//TRANSLIT', $_POST['firstName']);
+        $name = strtolower(preg_replace("/[^a-zA-Z]/", "", $name));
+        $nameChar = $name[0];
+
+        $surname = iconv('UTF-8', 'ASCII//TRANSLIT', $_POST['surname']);
+        $surname = strtolower(preg_replace("/[^a-zA-Z]/", "", $surname));
+        $login = $nameChar . $surname;
+        return $login;
+    }
+
+    function createEmail($login)
+    {
+        $email = "";
+        if ($_POST['role'] == 'employee' || $_POST['role'] == 'owner') {
+            $email = "@company.com";
+        } else $email = "@audits.com";
+        $email = $login . $email;
+        //echoTop($email,4);
+        return $email;
+    }
+
+    $login = createLogin();
+    $email = createEmail($login);
+    $data = [
+        'login' => $login,
+        'firstName' => $_POST['firstName'],
+        'surname' => $_POST['surname'],
+        'password' => $_POST['password'],
+        'phoneNumber' => $_POST['phoneNumber'],
+        'role' => $_POST['role'],
+        'email' => $email
+    ];
+    insertUser($data, $dbh);
+}

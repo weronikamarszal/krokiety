@@ -39,6 +39,5 @@ if ('/krokiety/index.php' === $uri) {
 } elseif ('/krokiety/index.php/document-details' === $uri) {
     require __DIR__ . '/src/pages/document/document-details.php';
 }
-
 bootstrapFoot();
 ?>

@@ -29,7 +29,7 @@ $data = [
     'firstName' => "Mariusz",
     'surname' => "Nowak",
     'phoneNumber'=>"567-345-532",
-    'role'=>'employee"',
+    'role'=>'employee',
     'email'=>"mnowak5@company.com"
 ];
 function insertUser($data,$dbh){
