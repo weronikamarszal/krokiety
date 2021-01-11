@@ -10,7 +10,7 @@ function returnLastId($dbh){
     $stmt= $dbh->prepare("SELECT id FROM users ORDER BY id DESC LIMIT 1");
     $stmt->execute();
     $fetch = $stmt->fetch();
-    echoTop($fetch, 2);
+    //echoTop($fetch, 2);
     return $fetch;
 }
 //returnLastId($dbh);
@@ -33,7 +33,7 @@ if (isset($_POST['firstName'])) {
 
         $id=returnLastId($dbh);
         $newId=strval($id[0]+1);
-        echoTop($newId);
+        //echoTop($newId);
         $login = $nameChar . $surname . $newId;
         return $login;
     }
