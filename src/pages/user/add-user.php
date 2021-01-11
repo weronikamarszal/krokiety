@@ -6,6 +6,14 @@ $errors = $validator->getEmptyValidations();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = $validator->validate($_POST, $_FILES);
 }
+function returnLastId($dbh){
+    $stmt= $dbh->prepare("SELECT id FROM users ORDER BY id DESC LIMIT 1");
+    $stmt->execute();
+    $fetch = $stmt->fetch();
+    echoTop($fetch, 2);
+    return $fetch;
+}
+//returnLastId($dbh);
 function insertUser($data,$dbh){
     $stmt= $dbh->prepare("INSERT INTO users (login, firstName,surname, password,phoneNumber,role,email) VALUES 
         (:login,:firstName,:surname,:password,:phoneNumber,:role,:email)");
@@ -14,7 +22,7 @@ function insertUser($data,$dbh){
 displayMenu(new BaseAddPage("Dodaj użytkownika", new AddUserComponent($errors)));
 
 if (isset($_POST['firstName'])) {
-    function createLogin()
+    function createLogin($dbh)
     {
         $name = iconv('UTF-8', 'ASCII//TRANSLIT', $_POST['firstName']);
         $name = strtolower(preg_replace("/[^a-zA-Z]/", "", $name));
@@ -22,7 +30,11 @@ if (isset($_POST['firstName'])) {
 
         $surname = iconv('UTF-8', 'ASCII//TRANSLIT', $_POST['surname']);
         $surname = strtolower(preg_replace("/[^a-zA-Z]/", "", $surname));
-        $login = $nameChar . $surname;
+
+        $id=returnLastId($dbh);
+        $newId=strval($id[0]+1);
+        echoTop($newId);
+        $login = $nameChar . $surname . $newId;
         return $login;
     }
 
@@ -36,8 +48,7 @@ if (isset($_POST['firstName'])) {
         //echoTop($email,4);
         return $email;
     }
-
-    $login = createLogin();
+    $login = createLogin($dbh);
     $email = createEmail($login);
     $data = [
         'login' => $login,
