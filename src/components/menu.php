@@ -41,6 +41,10 @@ function displayMenu($page)
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Użytkownicy
                         </a>
+                        <a class="nav-link" href='/krokiety/index.php/summary'>
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Podsumowanie
+                        </a>
                     </div>
                 </div>
             </nav>

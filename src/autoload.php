@@ -39,3 +39,6 @@ require_once __DIR__ . '/database/Pagination.php';
 require_once __DIR__ . '/util/printTop.php';
 require_once __DIR__ . '/pages/buy-invoice/BuyInvoice.php';
 require_once __DIR__ . '/database/SearchValues.php';
+require_once __DIR__ . '/pages/summary/MonthForm.php';
+require_once __DIR__ . '/pages/summary/SummaryComponent.php';
+require_once __DIR__ . '/pages/summary/SummaryForm.php';
