@@ -10,10 +10,10 @@ class SummaryComponent implements Component
     /**
      * SummaryComponent constructor.
      */
-    public function __construct()
+    public function __construct($monthValue, $summaryValue)
     {
-        $this->monthForm = new MonthForm();
-        $this->summaryForm = new SummaryForm();
+        $this->monthForm = new MonthForm($monthValue);
+        $this->summaryForm = new SummaryForm($summaryValue);
 
     }
 

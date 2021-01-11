@@ -11,8 +11,8 @@ class MonthForm extends BaseFormComponent implements Component
     {
         $this->method = "get";
         $this->fields = array(
-            new TextInputField('Miesiąc', 'month', null, $value['month']),
-            new TextInputField('Rok', 'year', null, $value['year']),
+            new TextInputField('Miesiąc', 'month', null, false, $value['month']),
+            new TextInputField('Rok', 'year', null, false, $value['year']),
         );
     }
 }
