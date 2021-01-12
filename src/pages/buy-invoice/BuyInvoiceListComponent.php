@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../components/component.interface.php';
 require_once __DIR__ . '/../../components/databaseConnection.php';
 
-class SellInvoiceListComponent implements Component
+class BuyInvoiceListComponent implements Component
 {
     protected $values;
 
@@ -33,19 +33,19 @@ class SellInvoiceListComponent implements Component
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($this->values as $sellInvoice): ?>
+            <?php foreach ($this->values as $buyInvoice): ?>
                 <tr>
-                    <td> <?= $sellInvoice->getId() ?> </td>
-                    <td> <?= $sellInvoice->getInvoiceNumber() ?> </td>
-                    <td> <?= $sellInvoice->getGrossAmount() ?> </td>
-                    <td> <?= $sellInvoice->getVATTaxAmount() ?> </td>
-                    <td> <?= $sellInvoice->getNetAmount() ?> </td>
-                    <td> <?= $sellInvoice->getContractorsName() ?> </td>
-                    <td> <?= $sellInvoice->getContractorsVatId() ?> </td>
-                    <td> <?= $sellInvoice->getNetAmountInCurrency() ?> </td>
-                    <td> <?= $sellInvoice->getCurrencyName() ?> </td>
-                    <td> <?= $sellInvoice->getInvoiceDate() ?> </td>
-                    <td> <a href="/krokiety/index.php/sell-invoice-details?id=<?= $sellInvoice->getId() ?>"> Pokaż</a> </td>
+                    <td> <?= $buyInvoice->getId() ?> </td>
+                    <td> <?= $buyInvoice->getInvoiceNumber() ?> </td>
+                    <td> <?= $buyInvoice->getGrossAmount() ?> </td>
+                    <td> <?= $buyInvoice->getVATTaxAmount() ?> </td>
+                    <td> <?= $buyInvoice->getNetAmount() ?> </td>
+                    <td> <?= $buyInvoice->getContractorsName() ?> </td>
+                    <td> <?= $buyInvoice->getContractorsVatId() ?> </td>
+                    <td> <?= $buyInvoice->getNetAmountInCurrency() ?> </td>
+                    <td> <?= $buyInvoice->getCurrencyName() ?> </td>
+                    <td> <?= $buyInvoice->getInvoiceDate() ?> </td>
+                    <td> <a href="/krokiety/index.php/buy-invoice-details?id=<?= $buyInvoice->getId() ?>"> Pokaż</a> </td>
 
                 </tr>
             <?php endforeach; ?>

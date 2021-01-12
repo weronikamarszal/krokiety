@@ -37,6 +37,8 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
         $uploadFileDir = './uploaded_files/sell_invoices/';
         $dest_path = $uploadFileDir . $newFileName;
         move_uploaded_file($fileTmpPath, $dest_path);
+        $path = 'http://localhost/krokiety/uploaded_files/sell_invoices/';
+        $endpath = $path . $newFileName;
     }
 
     $data = [
@@ -49,7 +51,7 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
         'netAmountInCurrency' => $_POST['netAmountInCurrency'],
         'currencyName' => $_POST['currencyName'],
         'invoiceDate' => $_POST['invoiceDate'],
-        'path' => $dest_path
+        'path' => $endpath
     ];
 
     insertSellInvoice($data, $dbh);
