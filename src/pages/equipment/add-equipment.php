@@ -7,5 +7,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = $validator->validate($_POST, $_FILES);
 }
 
+function insertEquipment($data,$dbh){
+    $stmt = $dbh->prepare("INSERT INTO devices (purchaseDate, deviceName, inventoryNumber, serialNumber, notes, 
+description, netValue, inPossessionOf, purchaseInvNum, warrExpiryDate)
+VALUES (:purchaseDate, :deviceName, :inventoryNumber, :serialNumber, :notes, 
+:description, :netValue, :inPossessionOf, :purchaseInvNum, :warrExpiryDate)");
+    $stmt->execute($data);
+}
 
 displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors)));
+
+$data = [
+    'purchaseDate' => $_POST['purchaseDate'],
+    'deviceName' => $_POST['deviceName'],
+    'inventoryNumber' => $_POST['inventoryNumber'],
+    'serialNumber' => $_POST['serialNumber'],
+    'notes' => $_POST['notes'],
+    'description' => $_POST['description'],
+    'netValue' => $_POST['netValue'],
+    'inPossessionOf' => $_POST['inPossessionOf'],
+    'purchaseInvNum' => $_POST['purchaseInvNum'],
+    'warrExpiryDate' => $_POST['warrExpiryDate']
+];
+echoTop("data created");
+
+insertEquipment($data, $dbh);
+echoTop("data inserted");
+

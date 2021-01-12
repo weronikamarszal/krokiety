@@ -14,6 +14,8 @@ class AddEquipmentComponent extends BaseFormComponent implements Component
             new TextInputField('Opis', 'description', $errors['description']),
             new NumberInputField('Wartość netto', 'netValue', $errors['netValue']),
             new NumberInputField('Na czyim jest stanie', 'inPossessionOf', $errors['inPossessionOf']),
+            new NumberInputField('Numer Inwentarzowy Zakupu', 'purchaseInvNum', $errors['purchaseInvNum']),
+            new DateInputField('Data Wygaśnięcia Gwarancji', 'warrExpiryDate', $errors['warrExpiryDate'])
         );
     }
 
