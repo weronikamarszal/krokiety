@@ -28,7 +28,7 @@ class SellInvoiceListComponent implements Component
                 <th> VAT ID kontrahenta</th>
                 <th> Kwota netto w walucie</th>
                 <th> Nazwa waluty</th>
-                <th> Path</th>
+                <th> Data</th>
                 <th> Szczegóły</th>
 
             </tr>

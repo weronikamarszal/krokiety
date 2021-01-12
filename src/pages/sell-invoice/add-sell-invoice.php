@@ -15,7 +15,7 @@ VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsNam
     $stmt->execute($data);
 }
 
-displayMenu(new BaseAddPage("Dodaj fakturę zakupu", new AddInvoiceComponent($errors)));
+displayMenu(new BaseAddPage("Dodaj fakturę sprzedaży", new AddInvoiceComponent($errors)));
 
 if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
     // get details of the uploaded file
