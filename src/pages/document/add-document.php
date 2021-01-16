@@ -35,13 +35,15 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
         $uploadFileDir = './uploaded_files/documents/';
         $dest_path = $uploadFileDir . $newFileName;
         move_uploaded_file($fileTmpPath, $dest_path);
+        $path = 'http://localhost/krokiety/uploaded_files/documents/';
+        $endpath = $path . $newFileName;
     }
 
     $data = [
         'documentDate' => $_POST['documentDate'],
         'notes' => $_POST['notes'],
         'pagesNumber' => $_POST['pagesNumber'],
-        'path' => $dest_path
+        'path' => $endpath
     ];
 
     insertDocument($data, $dbh);

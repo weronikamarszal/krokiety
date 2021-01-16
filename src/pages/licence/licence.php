@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/../../autoload.php';
+global $dbh;
+
+$sellInvoicesList = [];
+$pagination = new Pagination("salesinvoices");
 
 
 $values = array(

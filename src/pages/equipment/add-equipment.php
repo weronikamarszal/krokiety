@@ -29,8 +29,5 @@ $data = [
     'purchaseInvNum' => $_POST['purchaseInvNum'],
     'warrExpiryDate' => $_POST['warrExpiryDate']
 ];
-echoTop("data created");
 
 insertEquipment($data, $dbh);
-echoTop("data inserted");
-

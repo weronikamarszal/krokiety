@@ -30,6 +30,4 @@ $data = [
     'note' => $_POST['note']
 ];
 
-echoTop("data created");
-
 insertLicence($data, $dbh);

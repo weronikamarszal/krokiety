@@ -8,12 +8,14 @@ class EquipmentValidation
         return array(
             'purchaseDate' => "",
             'deviceName' => "",
-            'invNumber' => "",
+            'inventoryNumber' => "",
             'serialNumber' => "",
             'notes' => "",
             'description' => "",
             'netValue' => "",
             'inPossessionOf' => "",
+            'purchaseInvNum' => "",
+            'warrExpiryDate' => ""
         );
     }
 
@@ -21,12 +23,14 @@ class EquipmentValidation
         return array(
             'purchaseDate' => "",
             'deviceName' => "",
-            'invNumber' => "",
+            'inventoryNumber' => "",
             'serialNumber' => "",
             'notes' => "",
             'description' => "",
             'netValue' => "",
             'inPossessionOf' => "",
+            'purchaseInvNum' => "",
+            'warrExpiryDate' => ""
         );
     }
 }
