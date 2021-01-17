@@ -7,7 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors = $validator->validate($_POST, $_FILES);
 }
 
-function insertEquipment($data,$dbh){
+function insertEquipment($data, $dbh)
+{
     $stmt = $dbh->prepare("INSERT INTO devices (purchaseDate, deviceName, inventoryNumber, serialNumber, notes, 
 description, netValue, inPossessionOf, purchaseInvNum, warrExpiryDate)
 VALUES (:purchaseDate, :deviceName, :inventoryNumber, :serialNumber, :notes, 
@@ -15,7 +16,7 @@ VALUES (:purchaseDate, :deviceName, :inventoryNumber, :serialNumber, :notes,
     $stmt->execute($data);
 }
 
-displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors)));
+displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors, $_POST)));
 
 $data = [
     'purchaseDate' => $_POST['purchaseDate'],
@@ -30,4 +31,6 @@ $data = [
     'warrExpiryDate' => $_POST['warrExpiryDate']
 ];
 
+global $dbh;
 insertEquipment($data, $dbh);
+
