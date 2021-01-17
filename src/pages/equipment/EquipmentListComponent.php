@@ -18,17 +18,33 @@ class EquipmentListComponent implements Component
         <table>
             <thead>
             <tr>
-                <th> Nazwa</th>
-                <th> Numer seryjny</th>
-                <th> Data zakupu</th>
+                <th>id </th>
+                <th>purchaseDate </th>
+                <th>deviceName </th>
+                <th>inventoryNumber </th>
+                <th>serialNumber </th>
+                <th>notes </th>
+                <th>description </th>
+                <th>netValue </th>
+                <th>inPossesionOf </th>
+                <th>purchaseInvNum </th>
+                <th>warrExpiryDate </th>
             </tr>
             </thead>
             <tbody>
             <?php foreach ($this->values as $equipment): ?>
                 <tr>
-                    <td> <?= $equipment["deviceName"] ?> </td>
-                    <td> <?= $equipment["serialNumber"] ?> </td>
-                    <td> <?= $equipment["purchaseDate"] ?> </td>
+                    <td> <?= $equipment->getId() ?> </td>
+                    <td> <?= $equipment->getPurchaseDate() ?> </td>
+                    <td> <?= $equipment->getDeviceName() ?> </td>
+                    <td> <?= $equipment->getInventoryNumber() ?> </td>
+                    <td> <?= $equipment->getSerialNumber() ?> </td>
+                    <td> <?= $equipment->getNotes() ?> </td>
+                    <td> <?= $equipment->getDescription() ?> </td>
+                    <td> <?= $equipment->getNetValue() ?> </td>
+                    <td> <?= $equipment->getInPossessionOf() ?> </td>
+                    <td> <?= $equipment->getPurchaseInvNum() ?> </td>
+                    <td> <?= $equipment->getWarrExpiryDate() ?> </td>
                 </tr>
             <?php endforeach; ?>
 

@@ -32,5 +32,6 @@ $data = [
 ];
 
 global $dbh;
-insertEquipment($data, $dbh);
-
+if (isset($_POST['notes'])) {
+    insertEquipment($data, $dbh);
+}
