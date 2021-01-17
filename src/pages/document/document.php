@@ -1,27 +1,21 @@
 <?php
 require_once __DIR__.'/../../autoload.php';
+global $dbh;
 
-$values = array(
-    array(
-        "documentDate" => "2020-12-20T17:38:28.150Z",
-        "notes" => "notatka",
-        "pagesNumber" => "strona1",
-    ),
-    array(
-        "documentDate" => "2020-12-20T17:38:28.150Z",
-        "notes" => "notatka",
-        "pagesNumber" => "strona1",
-    ),
-    array(
-        "documentDate" => "2020-12-20T17:38:28.150Z",
-        "notes" => "notatka",
-        "pagesNumber" => "strona1",
-    )
-);
+$documentsList = [];
+$pagination = new Pagination("documents");
 
-displayMenu(new BaseListPage(new DocumentListComponent($values),
+try {
+    $stmt = $dbh->prepare("SELECT * FROM documents ORDER BY id ASC {$pagination->getQueryPart()}");
+    $stmt->execute();
+    $documentsList = $stmt->fetchAll(PDO::FETCH_CLASS, "Document");
+} catch (Exception $e) {
+    throw new Exception($e->getMessage());
+}
+displayMenu(new BaseListPage(
+    new DocumentListComponent($documentsList),
     new DocumentSearchForm(),
     "Dokumenty",
-    new PaginatorComponent(sizeof($values)),
+    new PaginatorComponent($pagination->getSize()),
     '/krokiety/index.php/add-document'));
 ?>

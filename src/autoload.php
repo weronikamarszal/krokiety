@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/pages/document/Document.model.php';
 require_once __DIR__ . '/components/databaseConnection.php';
 require_once __DIR__ . "/components/component.interface.php";
 require_once __DIR__ . '/components/BaseFormComponent.php';
