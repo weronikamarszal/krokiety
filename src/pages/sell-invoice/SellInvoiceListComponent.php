@@ -15,7 +15,6 @@ class SellInvoiceListComponent implements Component
     {
         ob_start();
         ?>
-
         <table>
             <thead>
             <tr>

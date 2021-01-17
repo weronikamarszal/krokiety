@@ -1,42 +1,21 @@
 <?php
 require_once __DIR__ . '/../../autoload.php';
 
-$values = array(
-    array(
-        "purchaseDate" => "2020-12-20T17:38:28.150Z",
-        "deviceName" => "nazwa",
-        "invNumber" => 1,
-        "serialNumber" => 1,
-        "notes" => "notatka",
-        "description" => "opis",
-        "nettValue" => 1,
-        "inPossessionOf" => 1,
-    ),
-    array(
-        "purchaseDate" => "2020-12-20T17:38:28.150Z",
-        "deviceName" => "nazwa",
-        "invNumber" => 1,
-        "serialNumber" => 1,
-        "notes" => "notatka",
-        "description" => "opis",
-        "nettValue" => 1,
-        "inPossessionOf" => 1,
-    ),
-    array(
-        "purchaseDate" => "2020-12-20T17:38:28.150Z",
-        "deviceName" => "nazwa",
-        "invNumber" => 1,
-        "serialNumber" => 1,
-        "notes" => "notatka",
-        "description" => "opis",
-        "nettValue" => 1,
-        "inPossessionOf" => 1,
-    )
-);
+$equipmentsList = [];
+$pagination = new Pagination("devices");
 
-displayMenu(new BaseListPage(new EquipmentListComponent($values),
+try {
+    $stmt = $dbh->prepare("SELECT * FROM devices ORDER BY id ASC {$pagination->getQueryPart()}");
+    $stmt->execute();
+    $equipmentsList = $stmt->fetchAll(PDO::FETCH_CLASS, "Equipment");
+} catch (Exception $e) {
+    throw new Exception($e->getMessage());
+}
+
+displayMenu(new BaseListPage(
+    new EquipmentListComponent($equipmentsList),
     new EquipmentSearchForm(),
     "Sprzęty",
-    new PaginatorComponent(sizeof($values)),
+    new PaginatorComponent($pagination->getSize()),
     '/krokiety/index.php/add-equipment'));
 ?>
