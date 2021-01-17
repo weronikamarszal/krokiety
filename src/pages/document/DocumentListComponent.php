@@ -27,10 +27,10 @@ class DocumentListComponent implements Component
             <tbody>
             <?php foreach ($this->values as $document): ?>
                 <tr>
-                    <td> <?= $document["documentDate"] ?> </td>
-                    <td> <?= $document["notes"] ?> </td>
-                    <td> <?= $document["pagesNumber"] ?> </td>
-                    <td><a href="/krokiety/index.php/document-details?id=<?=$document["id"] ?>"> Pokaż</a></td>
+                    <td> <?= $document->getDocumentDate() ?> </td>
+                    <td> <?= $document->getNotes() ?> </td>
+                    <td> <?= $document->getPagesNumber() ?> </td>
+                    <td><a href="/krokiety/index.php/document-details?id=<?=$document->getId() ?>"> Pokaż</a></td>
                 </tr>
             <?php endforeach; ?>
 
