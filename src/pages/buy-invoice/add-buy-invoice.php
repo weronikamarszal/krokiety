@@ -18,7 +18,6 @@ VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsNam
 displayMenu(new BaseAddPage("Dodaj fakturę zakupu", new AddInvoiceComponent($errors)));
 
 if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
-    // get details of the uploaded file
     $dest_path = "";
     $fileTmpPath = $_FILES['plik']['tmp_name'];
     $fileName = $_FILES['plik']['name'];
@@ -26,10 +25,8 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
     $fileNameCmps = explode(".", $fileName);
     $fileExtension = strtolower(end($fileNameCmps));
 
-    // sanitize file-name
     $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
-    // check if file has one of the following extensions
     $allowedfileExtensions = array('pdf');
 
     if (in_array($fileExtension, $allowedfileExtensions)) {

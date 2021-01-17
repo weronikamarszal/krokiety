@@ -18,6 +18,7 @@ require_once __DIR__ . '/pages/equipment/EquipmentValidation.php';
 require_once __DIR__ . '/pages/equipment/AddEquipmentComponent.php';
 require_once __DIR__ . '/pages/licence/LicenceListComponent.php';
 require_once __DIR__ . '/pages/licence/LicenceValidation.php';
+require_once __DIR__ . '/pages/licence/Licence.model.php';
 require_once __DIR__ . '/pages/licence/AddLicenceComponent.php';
 require_once __DIR__ . '/pages/user/User.php';
 require_once __DIR__ . '/pages/user/UserListComponent.php';

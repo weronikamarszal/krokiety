@@ -18,17 +18,34 @@ class LicenceListComponent implements Component
         <table>
             <thead>
             <tr>
-                <th> Numer inwerntarzowy</th>
-                <th> Klucz seryjny</th>
-                <th> Data zakupu</th>
+                <th> id</th>
+                <th> purchaseInvoiceId</th>
+                <th> UserId</th>
+                <th> name</th>
+                <th> serialNumber</th>
+                <th> inventoryNumber</th>
+                <th> purchaseDate</th>
+                <th> licenceValidTill</th>
+                <th> technicalSupportValid_till</th>
+                <th> description</th>
+                <th> note</th>
+
             </tr>
             </thead>
             <tbody>
             <?php foreach ($this->values as $licence): ?>
                 <tr>
-                    <td> <?= $licence["inventoryNumber"] ?> </td>
-                    <td> <?= $licence["serialNumber"] ?> </td>
-                    <td> <?= $licence["purchaseDate"] ?> </td>
+                    <td> <?= $licence->getId() ?> </td>
+                    <td> <?= $licence->getPurchaseInvoiceId() ?> </td>
+                    <td> <?= $licence->getUserId() ?> </td>
+                    <td> <?= $licence->getName() ?> </td>
+                    <td> <?= $licence->getSerialNumber() ?> </td>
+                    <td> <?= $licence->getInventoryNumber() ?> </td>
+                    <td> <?= $licence->getPurchaseDate() ?> </td>
+                    <td> <?= $licence->getLicenceValidTill() ?> </td>
+                    <td> <?= $licence->getTechnicalSupportValid_till() ?> </td>
+                    <td> <?= $licence->getDescription() ?> </td>
+                    <td> <?= $licence->getNote() ?> </td>
                 </tr>
             <?php endforeach; ?>
 

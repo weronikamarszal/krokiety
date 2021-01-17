@@ -2,31 +2,22 @@
 require_once __DIR__ . '/../../autoload.php';
 global $dbh;
 
-$sellInvoicesList = [];
-$pagination = new Pagination("salesinvoices");
+$licenceList = [];
+$pagination = new Pagination("licenses");
 
+try {
+    $stmt = $dbh->prepare("SELECT * FROM licenses ORDER BY id ASC {$pagination->getQueryPart()}");
+    $stmt->execute();
+    $licenceList = $stmt->fetchAll(PDO::FETCH_CLASS, "Licence");
+} catch (Exception $e) {
+    throw new Exception($e->getMessage());
+}
 
-$values = array(
-    array(
-        "inventoryNumber" => 10,
-        "serialNumber" => 5,
-        "purchaseDate" => "2020-12-20T17:38:28.150Z",
-    ),
-    array(
-        "inventoryNumber" => 10,
-        "serialNumber" => 5,
-        "purchaseDate" => "2020-12-20T17:38:28.150Z",
-    ),
-    array(
-        "inventoryNumber" => 10,
-        "serialNumber" => 5,
-        "purchaseDate" => "2020-12-20T17:38:28.150Z",
-    )
-);
-
-displayMenu(new BaseListPage(new LicenceListComponent($values),
+$href = '/krokiety/index.php/add-licence';
+displayMenu(new BaseListPage(
+    new LicenceListComponent($licenceList),
     null,
     "Licencje",
-    new PaginatorComponent(sizeof($values)),
-    '/krokiety/index.php/add-licence'));
+    new PaginatorComponent($pagination->getSize()),
+    $href));
 ?>
