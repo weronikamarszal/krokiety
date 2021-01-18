@@ -8,6 +8,13 @@ function displayMenu($page)
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand">Menu</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <?php
+        if(isset ($_SESSION['username'])){
+            $name=$_SESSION['firstname'];
+            echo "<p style='color:white;'> Witaj, $name</p>";
+        }
+
+        ?>
     </nav>
 
 
