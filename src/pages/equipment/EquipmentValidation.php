@@ -15,7 +15,7 @@ class EquipmentValidation
             'netValue' => "",
             'inPossessionOf' => "",
             'purchaseInvNum' => "",
-            'warrExpiryDate' => ""
+            'warrExpiryDate' => "",
         );
     }
 
@@ -30,7 +30,7 @@ class EquipmentValidation
             'netValue' => "",
             'inPossessionOf' => "",
             'purchaseInvNum' => "",
-            'warrExpiryDate' => ""
+            'warrExpiryDate' => "",
         );
     }
 }
