@@ -11,7 +11,6 @@ class LoginComponent extends BaseFormComponent implements Component
         $this->fields = array(
             new TextInputField('Login', 'username', $errors['username'],$readonly, $value->username),
             new PasswordInputField('Hasło', 'password', $errors['password'], $readonly, $value->password),
-
         );
     }
 
