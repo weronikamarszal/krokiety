@@ -40,7 +40,11 @@ if ('/krokiety/index.php' === $uri) {
     require __DIR__ . '/src/pages/document/document-details.php';
 } elseif ('/krokiety/index.php/summary' === $uri) {
     require __DIR__ . '/src/pages/summary/summary.php';
-}
+} elseif ('/krokiety/index.php/login' === $uri) {
+    require __DIR__ . '/src/pages/login/login.php';
+} /*elseif ('/krokiety/index.php/summary' === $uri) {
+    require __DIR__ . '/src/pages/summary/summary.php';
+}*/
 
 //bootstrapFoot();
 ?>
