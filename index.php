@@ -49,6 +49,8 @@ if ('/krokiety/index.php' === $uri) {
     require __DIR__ . '/src/pages/login/login.php';
 } elseif ('/krokiety/index.php/logout' === $uri) {
     require __DIR__ . '/src/pages/login/logout.php';
+} elseif ('/krokiety/index.php/welcome' === $uri) {
+    require __DIR__ . '/src/pages/welcome/welcomePage.php';
 }
 
 //bootstrapFoot();

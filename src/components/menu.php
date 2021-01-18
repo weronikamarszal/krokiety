@@ -24,7 +24,7 @@ function displayMenu($page)
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <a class="nav-link" href='/krokiety/index.php/sell-invoice'>
+                        <!--<a class="nav-link" href='/krokiety/index.php/sell-invoice'>
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Faktury sprzedaży
                         </a>
@@ -51,8 +51,64 @@ function displayMenu($page)
                         <a class="nav-link" href='/krokiety/index.php/summary'>
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Podsumowanie
-                        </a>
+                        </a>-->
                         <?php
+                        if(isset($_SESSION["userid"])) {
+                            if (1) {
+                                echo "<a class='nav-link' href='/krokiety/index.php/sell-invoice'>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Faktury sprzedaży
+                        </a>";
+                            }
+                        }
+                        if(isset($_SESSION["userid"])) {
+                            if (1) {
+                                echo "<a class='nav-link' href='/krokiety/index.php/buy-invoice'>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Faktury zakupu
+                        </a>";
+                            }
+                        }
+                        if(isset($_SESSION["userid"])) {
+                            if (1) {
+                                echo "<a class='nav-link' href='/krokiety/index.php/licence''>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Licencje
+                        </a>";
+                            }
+                        }
+                        if(isset($_SESSION["userid"])) {
+                            if (!($_SESSION["role"] == "employee")) {
+                                echo "<a class='nav-link' href='/krokiety/index.php/document'>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Dokumenty
+                        </a>";
+                            }
+                        }
+                        if(isset($_SESSION["userid"])) {
+                            if(1){
+                                echo "<a class='nav-link' href='/krokiety/index.php/equipment'>
+                                <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                                Sprzęty
+                            </a>";
+                            }
+                        }
+                        if(isset($_SESSION["userid"])) {
+                            if (!($_SESSION["role"] == "employee")) {
+                                echo "<a class='nav-link' href='/krokiety/index.php/usersList'>
+                                                <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                                                Użytkownicy
+                                            </a>";
+                            }
+                        }
+                        if(isset($_SESSION["userid"])) {
+                            if (!($_SESSION["role"] == "employee")) {
+                                echo "<a class='nav-link' href='/krokiety/index.php/summary'>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Podsumowanie
+                        </a>";
+                            }
+                        }
                         if(!isset($_SESSION["userid"])){
                         echo "<a class='btn btn-outline-success' href='/krokiety/index.php/login'>
                             <div class='sb-nav-link-icon'><i class='fas fa-sign-in-alt'></i></div>
