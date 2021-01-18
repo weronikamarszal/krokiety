@@ -45,6 +45,14 @@ function displayMenu($page)
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Podsumowanie
                         </a>
+                        <a class="nav-link" href='/krokiety/index.php/summary'>
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+                            Zaloguj się
+                        </a>
+                        <a class="nav-link" href='/krokiety/index.php/summary'>
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Wyloguj się
+                        </a>
                     </div>
                 </div>
             </nav>
