@@ -12,4 +12,5 @@ catch(Exception $e){
     throw new Exception($e->getMessage());
 }
 
-displayMenu(new BaseAddPage("Szczegóły", new AddDocumentComponent([], $document, true)));
+$link = "Location: " . $document->path;
+header($link);
