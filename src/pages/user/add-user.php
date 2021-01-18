@@ -15,6 +15,7 @@ function returnLastId($dbh){
 }
 //returnLastId($dbh);
 function insertUser($data,$dbh){
+
     $stmt= $dbh->prepare("INSERT INTO users (login, firstName,surname, password,phoneNumber,role,email) VALUES 
         (:login,:firstName,:surname,:password,:phoneNumber,:role,:email)");
     $stmt->execute($data);
@@ -50,11 +51,13 @@ if (isset($_POST['firstName'])) {
     }
     $login = createLogin($dbh);
     $email = createEmail($login);
+    $pswd=$_POST['password'];
+    $hashedPassword=password_hash($pswd,PASSWORD_DEFAULT);
     $data = [
         'login' => $login,
         'firstName' => $_POST['firstName'],
         'surname' => $_POST['surname'],
-        'password' => $_POST['password'],
+        'password' => $hashedPassword,
         'phoneNumber' => $_POST['phoneNumber'],
         'role' => $_POST['role'],
         'email' => $email
