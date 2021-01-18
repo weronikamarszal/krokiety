@@ -48,4 +48,4 @@ require_once __DIR__ . '/pages/summary/SummaryComponent.php';
 require_once __DIR__ . '/pages/summary/SummaryForm.php';
 require_once __DIR__ . '/pages/login/LoginComponent.php';
 require_once __DIR__ . '/pages/login/LoginValidation.php';
-require_once __DIR__ . '/pages/login/LoginValidation.php';
+require_once __DIR__ . '/pages/welcome/WelcomeComponent.php';

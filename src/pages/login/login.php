@@ -39,15 +39,13 @@ if(isset($_POST['username'])) {
         header("location: ./login.php?error=wrongpassword");
         exit();
     } else if ($checkPwd === true) {
-        //echoTop("zalogowany");
         session_save_path("/krokiety/session_files");
         session_start();
         $_SESSION["username"] = $uidExists["login"];
         $_SESSION["firstname"] = $uidExists["firstName"];
         $_SESSION["userid"] = $uidExists["id"];
         $_SESSION["role"] = $uidExists["role"];
-        //echoTop("zalogowany");
-        header("location: /krokiety/index.php");
+        header("location: ./welcome");
         exit();
     }
 }
