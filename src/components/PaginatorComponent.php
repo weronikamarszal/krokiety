@@ -36,6 +36,7 @@ class PaginatorComponent implements Component
                 <?php endfor; ?>
             </div>
         </div>
+        <div class="mb-4"></div>
         <?php
         return ob_get_clean();
     }

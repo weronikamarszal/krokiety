@@ -7,16 +7,16 @@ function displayMenu($page)
     ?>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand">Menu</a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>
+        </button>
         <?php
-        if(isset ($_SESSION['username'])){
-            $name=$_SESSION['firstname'];
+        if (isset ($_SESSION['username'])) {
+            $name = $_SESSION['firstname'];
             echo "<p style='color:white;'> Witaj, $name</p>";
         }
 
         ?>
     </nav>
-
 
 
     <div id="layoutSidenav">
@@ -53,7 +53,7 @@ function displayMenu($page)
                             Podsumowanie
                         </a>-->
                         <?php
-                        if(isset($_SESSION["userid"])) {
+                        if (isset($_SESSION["userid"])) {
                             if (1) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/sell-invoice'>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
@@ -61,7 +61,7 @@ function displayMenu($page)
                         </a>";
                             }
                         }
-                        if(isset($_SESSION["userid"])) {
+                        if (isset($_SESSION["userid"])) {
                             if (1) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/buy-invoice'>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
@@ -69,7 +69,7 @@ function displayMenu($page)
                         </a>";
                             }
                         }
-                        if(isset($_SESSION["userid"])) {
+                        if (isset($_SESSION["userid"])) {
                             if (1) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/licence''>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
@@ -77,7 +77,7 @@ function displayMenu($page)
                         </a>";
                             }
                         }
-                        if(isset($_SESSION["userid"])) {
+                        if (isset($_SESSION["userid"])) {
                             if (!($_SESSION["role"] == "employee")) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/document'>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
@@ -85,15 +85,15 @@ function displayMenu($page)
                         </a>";
                             }
                         }
-                        if(isset($_SESSION["userid"])) {
-                            if(1){
+                        if (isset($_SESSION["userid"])) {
+                            if (1) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/equipment'>
                                 <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
                                 Sprzęty
                             </a>";
                             }
                         }
-                        if(isset($_SESSION["userid"])) {
+                        if (isset($_SESSION["userid"])) {
                             if (!($_SESSION["role"] == "employee")) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/usersList'>
                                                 <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
@@ -101,7 +101,7 @@ function displayMenu($page)
                                             </a>";
                             }
                         }
-                        if(isset($_SESSION["userid"])) {
+                        if (isset($_SESSION["userid"])) {
                             if (!($_SESSION["role"] == "employee")) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/summary'>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
@@ -109,30 +109,32 @@ function displayMenu($page)
                         </a>";
                             }
                         }
-                        if(!isset($_SESSION["userid"])){
-                        echo "<a class='btn btn-outline-success' href='/krokiety/index.php/login'>
+                        if (!isset($_SESSION["userid"])) {
+                            echo "<a class='btn btn-outline-success' href='/krokiety/index.php/login'>
                             <div class='sb-nav-link-icon'><i class='fas fa-sign-in-alt'></i></div>
                             Zaloguj się
                         </a><br>";
                         }
-                        if(isset($_SESSION["userid"])){
+                        if (isset($_SESSION["userid"])) {
                             echo "<a class='btn btn-outline-danger' href='/krokiety/index.php/logout'>
                             <div class='sb-nav-link-icon'><i class='fas fa-sign-out-alt '></i></div>
                              Wyloguj się
                             </a>";
-                            }
+                        }
                         ?>
-                       <!-- <a class='btn btn-outline-danger' href='/krokiety/index.php/logout'>
-                            <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt "></i></div>
-                            Wyloguj się
-                        </a>-->
+                        <!-- <a class='btn btn-outline-danger' href='/krokiety/index.php/logout'>
+                             <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt "></i></div>
+                             Wyloguj się
+                         </a>-->
                     </div>
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <?= $page ?>
+                <div class="container-fluid">
+                    <?= $page ?>
+                </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
