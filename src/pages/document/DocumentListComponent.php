@@ -15,7 +15,7 @@ class DocumentListComponent implements Component
     {
         ob_start();
         ?>
-        <table>
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th> Data</th>
@@ -30,7 +30,7 @@ class DocumentListComponent implements Component
                     <td> <?= $document->getDocumentDate() ?> </td>
                     <td> <?= $document->getNotes() ?> </td>
                     <td> <?= $document->getPagesNumber() ?> </td>
-                    <td><a href="/krokiety/index.php/document-details?id=<?=$document->getId() ?>"> Pokaż</a></td>
+                    <td><a href="/krokiety/index.php/document-details?id=<?=$document->getId() ?>"> <span class="fa fa-file-pdf" style="font-size: 2em"></span></a></td>
                 </tr>
             <?php endforeach; ?>
 

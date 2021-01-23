@@ -15,7 +15,7 @@ class LicenceListComponent implements Component
     {
         ob_start();
         ?>
-        <table>
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th> id</th>

@@ -15,7 +15,7 @@ class SellInvoiceListComponent implements Component
     {
         ob_start();
         ?>
-        <table>
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th> Id</th>
@@ -28,6 +28,7 @@ class SellInvoiceListComponent implements Component
                 <th> Kwota netto w walucie</th>
                 <th> Nazwa waluty</th>
                 <th> Data</th>
+                <th> Podgląd</th>
 
             </tr>
             </thead>
@@ -44,7 +45,7 @@ class SellInvoiceListComponent implements Component
                     <td> <?= $sellInvoice->getNetAmountInCurrency() ?> </td>
                     <td> <?= $sellInvoice->getCurrencyName() ?> </td>
                     <td> <?= $sellInvoice->getInvoiceDate() ?> </td>
-                    <td> <a href="/krokiety/index.php/sell-invoice-details?id=<?= $sellInvoice->getId() ?>"> Pokaż</a> </td>
+                    <td> <a href="/krokiety/index.php/sell-invoice-details?id=<?= $sellInvoice->getId() ?>"> <span class="fa fa-file-pdf" style="font-size: 2em"></span></a> </td>
 
                 </tr>
             <?php endforeach; ?>

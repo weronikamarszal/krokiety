@@ -25,12 +25,14 @@ class BaseInputField implements Component
     {
         ob_start();
         ?>
-        <div>
-            <label>
+        <div class="form-group row">
+            <label class="col-sm-4 col-form-label">
                 <?= $this->label ?>
             </label>
-            <input type='<?= $this->type ?>' name='<?= $this->name ?>' <?= $this->readonly ? 'readonly' : '' ?>
-                   value="<?= $this->value ?>">
+            <div class="col-sm-8">
+                <input class="form-control" type='<?= $this->type ?>' name='<?= $this->name ?>' <?= $this->readonly ? 'readonly' : '' ?>
+                       value="<?= $this->value ?>">
+            </div>
             <div class="error"><?= $this->error ?></div>
         </div>
         <?php

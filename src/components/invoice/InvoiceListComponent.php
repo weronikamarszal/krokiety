@@ -15,7 +15,7 @@ class InvoiceListComponent implements Component
     {
         ob_start();
         ?>
-        <table>
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th> Numer faktury</th>
@@ -30,7 +30,7 @@ class InvoiceListComponent implements Component
                     <td> <?= $invoice["id"] ?> </td>
                     <td> <?= $invoice["VAT"] ?> </td>
                     <td> <?= $invoice["netto"] ?> </td>
-                    <td><a href="/krokiety/index.php/buy-invoice-details?id=<?= $invoice["id"] ?>"> Pokaż</a></td>
+                    <td><a href="/krokiety/index.php/buy-invoice-details?id=<?= $invoice["id"] ?>"> <span class="fa fa-file-pdf"  style="font-size: 2em"></span></a></td>
                 </tr>
             <?php endforeach; ?>
 

@@ -12,7 +12,7 @@ class BaseFormComponent implements Component
     {
         ob_start();
         ?>
-        <form method="<?= $this->method ?>" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
+        <form class="mb-4" method="<?= $this->method ?>" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
               enctype="multipart/form-data">
             <?php foreach ($this->fields as $field): ?>
                 <?= $field ?>
@@ -20,7 +20,7 @@ class BaseFormComponent implements Component
 
             <?php
             if (!$this->readonly) { ?>
-                <input type='submit'>
+                <button class="btn btn-primary" type='submit'>Prześlij</button>
             <?php } ?>
 
         </form>

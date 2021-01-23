@@ -16,7 +16,7 @@ class BuyInvoiceListComponent implements Component
         ob_start();
         ?>
 
-        <table>
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th> Id</th>
@@ -45,7 +45,7 @@ class BuyInvoiceListComponent implements Component
                     <td> <?= $buyInvoice->getNetAmountInCurrency() ?> </td>
                     <td> <?= $buyInvoice->getCurrencyName() ?> </td>
                     <td> <?= $buyInvoice->getInvoiceDate() ?> </td>
-                    <td> <a href="/krokiety/index.php/buy-invoice-details?id=<?= $buyInvoice->getId() ?>"> Pokaż</a> </td>
+                    <td> <a href="/krokiety/index.php/buy-invoice-details?id=<?= $buyInvoice->getId() ?>"> <span class="fa fa-file-pdf" style="font-size: 2em"></span></a> </td>
 
                 </tr>
             <?php endforeach; ?>

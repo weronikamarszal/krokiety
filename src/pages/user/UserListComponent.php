@@ -15,7 +15,7 @@ class UserListComponent implements Component
     {
         ob_start();
         ?>
-        <table>
+        <table class="table table-bordered dataTable">
             <thead>
             <tr>
                 <th> Id</th>

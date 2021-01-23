@@ -31,8 +31,11 @@ class BaseListPage implements Component
     {
         ob_start();
         ?>
-        <h2> <?= $this->title ?></h2>
-        <a href='<?= $this->addButtonHref ?>'> Dodaj</a>
+        <h2> <?= $this->title ?>
+            <div class="mb-2 float-right"><a class="btn btn-outline-primary" href='<?= $this->addButtonHref ?>'
+                                            role="button"> Dodaj <span
+                            class="fa fa-plus-circle"></span></a></div>
+        </h2>
         <?= $this->list ?>
         <?= $this->paginator ?>
         <?= $this->searchForm ?>
