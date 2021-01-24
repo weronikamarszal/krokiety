@@ -20,5 +20,5 @@ displayMenu(new BaseListPage(
     new DocumentSearchForm($_GET),
     "Dokumenty",
     new PaginatorComponent($pagination->getSize()),
-    '/krokiety/index.php/add-document'));
+    '/krokiety/index.php/add-document',"documents"));
 ?>

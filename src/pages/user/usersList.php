@@ -43,5 +43,5 @@ displayMenu(new BaseListPage(new UserListComponent($usersList),
     null,
     "Użytkownicy",
     new PaginatorComponent(sizeof($usersList)),
-    '/krokiety/index.php/add-user'));
+    '/krokiety/index.php/add-user',"users"));
 ?>

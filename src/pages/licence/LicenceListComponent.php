@@ -18,17 +18,17 @@ class LicenceListComponent implements Component
         <table class="table table-bordered dataTable">
             <thead>
             <tr>
-                <th> id</th>
-                <th> purchaseInvoiceId</th>
-                <th> UserId</th>
-                <th> name</th>
-                <th> serialNumber</th>
-                <th> inventoryNumber</th>
-                <th> purchaseDate</th>
-                <th> licenceValidTill</th>
-                <th> technicalSupportValid_till</th>
-                <th> description</th>
-                <th> note</th>
+                <th> ID</th>
+                <th> ID faktury zakupu</th>
+                <th> ID użytkownika</th>
+                <th> Nazwa programu</th>
+                <th> Numer seryjny</th>
+                <th> Numer inwentarzowy</th>
+                <th> Data zakupu</th>
+                <th> Data ważności licencji</th>
+                <th> Data ważności wsparcia</th>
+                <th> Opis</th>
+                <th> Notatki</th>
 
             </tr>
             </thead>

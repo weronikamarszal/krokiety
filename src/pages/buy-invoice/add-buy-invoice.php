@@ -12,7 +12,10 @@ function insertBuyInvoice($data,$dbh){
 contractorsName, contractorsVatId, netAmountInCurrency, currencyName, invoiceDate, path)
 VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsName, :contractorsVatId,
 :netAmountInCurrency, :currencyName, :invoiceDate, :path)") ;
-    $stmt->execute($data);
+    $res=$stmt->execute($data);
+    if($res==true){
+        echo "<p> Sukces!</p>";
+    }
 }
 
 displayMenu(new BaseAddPage("Dodaj fakturę zakupu", new AddInvoiceComponent($errors)));

@@ -54,18 +54,30 @@ function displayMenu($page)
                         </a>-->
                         <?php
                         if (isset($_SESSION["userid"])) {
-                            if (1) {
+                            if (!($_SESSION["role"] == "employee")) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/sell-invoice'>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
                             Faktury sprzedaży
                         </a>";
                             }
+                            else{
+                                echo "<a class='nav-link' href='/krokiety/index.php/add-sell-invoice'>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Dodaj fakturę sprzedaży
+                        </a>";
+                            }
                         }
                         if (isset($_SESSION["userid"])) {
-                            if (1) {
+                            if (!($_SESSION["role"] == "employee")) {
                                 echo "<a class='nav-link' href='/krokiety/index.php/buy-invoice'>
                             <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
                             Faktury zakupu
+                        </a>";
+                                }
+                            else{
+                                    echo "<a class='nav-link' href='/krokiety/index.php/add-buy-invoice'>
+                            <div class='sb-nav-link-icon'><i class='fas fa-book-open'></i></div>
+                            Dodaj fakturę zakupu
                         </a>";
                             }
                         }

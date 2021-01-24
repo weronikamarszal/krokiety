@@ -18,17 +18,17 @@ class EquipmentListComponent implements Component
         <table class="table table-bordered dataTable">
             <thead>
             <tr>
-                <th>id </th>
-                <th>purchaseDate </th>
-                <th>deviceName </th>
-                <th>inventoryNumber </th>
-                <th>serialNumber </th>
-                <th>notes </th>
-                <th>description </th>
-                <th>netValue </th>
-                <th>inPossesionOf </th>
-                <th>purchaseInvNum </th>
-                <th>warrExpiryDate </th>
+                <th>ID </th>
+                <th>Data zakupu </th>
+                <th>Nazwa urządzenia </th>
+                <th>Numer inwentarzowy</th>
+                <th>Numer seryjny</th>
+                <th>Notatki</th>
+                <th>Opis </th>
+                <th>Wartość netto </th>
+                <th>Na stanie </th>
+                <th>Numer faktury zakupu </th>
+                <th>Data ważności gwarancji</th>
             </tr>
             </thead>
             <tbody>

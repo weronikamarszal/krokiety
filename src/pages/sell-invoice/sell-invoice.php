@@ -20,6 +20,6 @@ displayMenu(
         new InvoiceSearchForm($_GET),
         "Faktury Sprzedaży",
         new PaginatorComponent($pagination->getSize()),
-        '/krokiety/index.php/add-sell-invoice'));
+        '/krokiety/index.php/add-sell-invoice',"sell-invoice"));
 
 ?>
