@@ -9,7 +9,7 @@ if(isset($_SESSION["userid"])){
 error_reporting(error_reporting() & ~E_NOTICE);
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-//bootstrapHead();
+//bootstapHead();
 
 if ('/krokiety/index.php' === $uri) {
     displayMenu("");

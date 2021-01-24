@@ -20,6 +20,6 @@ displayMenu(new BaseListPage(
     new InvoiceSearchForm($_GET),
     "Faktury Zakupu",
     new PaginatorComponent($pagination->getSize()),
-    $href));
+    $href,"buy-invoice"));
 ?>
 
