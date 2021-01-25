@@ -42,7 +42,7 @@ class LicenceListComponent implements Component
                     <td> <?= $licence->getSerialNumber() ?> </td>
                     <td> <?= $licence->getInventoryNumber() ?> </td>
                     <td> <?= $licence->getPurchaseDate() ?> </td>
-                    <td> <?= $licence->getLicenceValidTill() ?> </td>
+                    <td> <?= $licence->getLicenseValidTill() ?> </td>
                     <td> <?= $licence->getTechnicalSupportValid_till() ?> </td>
                     <td> <?= $licence->getDescription() ?> </td>
                     <td> <?= $licence->getNote() ?> </td>
