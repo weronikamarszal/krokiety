@@ -3,9 +3,10 @@ require_once __DIR__ . '/../../autoload.php';
 
 
 $usersList=[];
+$pagination = new Pagination("users");
 
 try{
-    $stmt= $dbh->prepare("SELECT * FROM users ORDER BY id ASC");
+    $stmt= $dbh->prepare("SELECT * FROM users ORDER BY id ASC {$pagination->getQueryPart()}");
     $stmt->execute();
     $users = $stmt->fetchAll();
     foreach ($users as $u) {
@@ -42,6 +43,6 @@ function insertUser($data,$dbh){
 displayMenu(new BaseListPage(new UserListComponent($usersList),
     null,
     "Użytkownicy",
-    new PaginatorComponent(sizeof($usersList)),
+    new PaginatorComponent($pagination->getSize()),
     '/krokiety/index.php/add-user',"users"));
 ?>
