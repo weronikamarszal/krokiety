@@ -9,8 +9,8 @@ class AddEquipmentComponent extends BaseFormComponent implements Component
         $this->fields = array(
             new DateInputField('Data zakupu', 'purchaseDate', $errors['purchaseDate'], $readonly, $value->purchaseDate),
             new TextInputField('Nazwa sprzętu', 'deviceName', $errors['deviceName'], $readonly, $value->deviceName),
-            new NumberInputField('Numer inwentarzowy zakupu', 'inventoryNumber', $errors['inventoryNumber'], $readonly, $value->inventoryNumber),
-            new NumberInputField('Numer seryjny', 'serialNumber', $errors['serialNumber'], $readonly, $value->serialNumber),
+            new TextInputField('Numer inwentarzowy zakupu', 'inventoryNumber', $errors['inventoryNumber'], $readonly, $value->inventoryNumber),
+            new TextInputField('Numer seryjny', 'serialNumber', $errors['serialNumber'], $readonly, $value->serialNumber),
             new TextInputField('Notatki', 'notes', $errors['notes'], $readonly, $value->notes),
             new TextInputField('Opis', 'description', $errors['description'], $readonly, $value->description),
             new NumberInputField('Wartość netto', 'netValue', $errors['netValue'], $readonly, $value->netValue),

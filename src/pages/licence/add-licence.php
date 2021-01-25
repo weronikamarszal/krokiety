@@ -31,18 +31,48 @@ $invoicesId = array_map(function ($i) {
 
 displayMenu(new BaseAddPage("Dodaj licencję", new AddLicenceComponent($errors, $usersId, $invoicesId)));
 
+if ($_POST['name'] != NULL) {
 
-$data = [
-    'purchaseInvoiceId' => $_POST['purchaseInvoiceId'],
-    'userId' => $_POST['userId'],
-    'name' => $_POST['name'],
-    'serialNumber' => $_POST['serialNumber'],
-    'inventoryNumber' => $_POST['inventoryNumber'],
-    'purchaseDate' => $_POST['purchaseDate'],
-    'licenseValidTill' => $_POST['licenseValidTill'],
-    'technicalSupportValid_till' => $_POST['technicalSupportValid_till'],
-    'description' => $_POST['description'],
-    'note' => $_POST['note']
-];
+    $message = "";
 
-insertLicence($data, $dbh);
+    if ($_POST['serialNumber'] == NULL){
+        $message = $message . "Wprowadż numer seryjny" . '\n';
+    }
+    if ($_POST['inventoryNumber'] == NULL){
+        $message = $message . "Wprowadż numer inwentarzowy" . '\n';
+    }
+    if ($_POST['purchaseDate'] == NULL){
+        $message = $message . "Wprowadż datę zakupu" . '\n';
+    }
+    if ($_POST['technicalSupportValid_till'] == NULL){
+        $message = $message . "Wprowadż datę do kiedy ważne wsparcie techniczne" . '\n';
+    }
+    if ($_POST['description'] == NULL){
+        $message = $message . "Wprowdż opis" . '\n';
+    }
+    $buyDate = $_POST['purchaseDate'];
+    $buyDateConverted = str_replace(".","-", $buyDate);
+    $dateNow = date("Y-m-d");
+    if ($buyDateConverted > $dateNow){
+        $message = $message . "Data zakupu nie może być w przyszłości" . '\n';
+    }
+
+    if ($message == ""){
+        $data = [
+            'purchaseInvoiceId' => $_POST['purchaseInvoiceId'],
+            'userId' => $_POST['userId'],
+            'name' => $_POST['name'],
+            'serialNumber' => $_POST['serialNumber'],
+            'inventoryNumber' => $_POST['inventoryNumber'],
+            'purchaseDate' => $_POST['purchaseDate'],
+            'licenseValidTill' => $_POST['licenseValidTill'],
+            'technicalSupportValid_till' => $_POST['technicalSupportValid_till'],
+            'description' => $_POST['description'],
+            'note' => $_POST['note']
+        ];
+        insertLicence($data, $dbh);
+        echo "<script type='text/javascript'>alert('Licencja została dodana');</script>";
+    } else {
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+}

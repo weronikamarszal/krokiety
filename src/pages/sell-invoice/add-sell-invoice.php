@@ -17,11 +17,6 @@ contractorsName, contractorsVatId, netAmountInCurrency, currencyName, invoiceDat
 VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsName, :contractorsVatId,
 :netAmountInCurrency, :currencyName, :invoiceDate, :path)") ;
     $res=$stmt->execute($data);
-   if ($res==true){
-       echo '<script language="javascript">';
-       echo 'alert("Invoice uploaded successfully")';
-       echo '</script>';
-   }
 }
 
 displayMenu(new BaseAddPage("Dodaj fakturę sprzedaży", new AddInvoiceComponent($errors)));
@@ -54,29 +49,26 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
     $message = "";
 
     if ($_POST['netAmount'] > $_POST['grossAmount']) {
-        $message = $message . "Gross amount cannot be less than net amount!" . '\n';
+        $message = $message . "Kwota brutto nie może być mniejsza, niż kwota netto" . '\n';
     }
     if ($_POST['invoiceNumber'] == NULL) {
-        $message = $message . "Please, provide an invoice number" . '\n';
+        $message = $message . "Wprowadż numer faktury" . '\n';
     }
     if ($_POST['netAmount'] == NULL) {
-        $message = $message . "Please, provide net amount" . '\n';
+        $message = $message . "Wprowadż kwotę netto" . '\n';
     }
     if ($_POST['grossAmount'] == NULL) {
-        $message = $message . "Please, provide gross amount" . '\n';
+        $message = $message . "Wprowadż kwotę brutto" . '\n';
     }
     if ($_POST['contractorsName'] == NULL) {
-        $message = $message . "Please, provide contractors name" . '\n';
+        $message = $message . "Wprowadż nazwe kontrahenta" . '\n';
     }
     if ($_POST['contractorsVatId'] == NULL) {
-        $message = $message . "Please, provide contractors VAT id" . '\n';
+        $message = $message . "Wprowadż VAT ID kontrahenta" . '\n';
     }
     if ($_POST['invoiceDate'] == NULL) {
-        $message = $message . "Please, provide invoice date" . '\n';
+        $message = $message . "Wprowadż datę faktury" . '\n';
     }
-//    elseif (isset($_FILES['plik']) == false) {
-//        $message = $message . "Please, upload the file" . "\n";
-//    }
 
     if($message == ""){
         $data = [
@@ -92,6 +84,7 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
             'path' => $endpath
         ];
         insertSellInvoice($data, $dbh);
+        echo "<script type='text/javascript'>alert('Faktura została dodana');</script>";
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
@@ -104,4 +97,3 @@ else if( $_COOKIE["File"]=="0") {
     echo 'alert("Dodaj plik")';
     echo '</script>';
 }
-echoTop($_COOKIE["File"]);
