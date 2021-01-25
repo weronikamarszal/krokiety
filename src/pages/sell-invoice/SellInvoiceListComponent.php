@@ -18,7 +18,7 @@ class SellInvoiceListComponent implements Component
         <table class="table table-bordered dataTable">
             <thead>
             <tr>
-                <th> Id</th>
+                <th> ID</th>
                 <th> Numer faktury</th>
                 <th> Kwota brutto</th>
                 <th> Kwota podatku VAT</th>

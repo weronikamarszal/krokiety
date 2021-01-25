@@ -18,7 +18,7 @@ class UserListComponent implements Component
         <table class="table table-bordered dataTable">
             <thead>
             <tr>
-                <th> Id</th>
+                <th> ID</th>
                 <th> Login</th>
                 <th> Imię</th>
                 <th> Nazwisko</th>
