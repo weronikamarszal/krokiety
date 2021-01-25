@@ -16,9 +16,6 @@ contractorsName, contractorsVatId, netAmountInCurrency, currencyName, invoiceDat
 VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsName, :contractorsVatId,
 :netAmountInCurrency, :currencyName, :invoiceDate, :path)") ;
     $res=$stmt->execute($data);
-    if($res==true){
-        echo "<p> Sukces!</p>";
-    }
 }
 
 displayMenu(new BaseAddPage("Dodaj fakturę zakupu", new AddInvoiceComponent($errors)));
@@ -44,20 +41,48 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
         $endpath = $path . $newFileName;
     }
 
-    $data = [
-        'invoiceNumber' => $_POST['invoiceNumber'],
-        'grossAmount' => $_POST['grossAmount'],
-        'VATTaxAmount' => $_POST['grossAmount'] - $_POST['netAmount'],
-        'netAmount' => $_POST['netAmount'],
-        'contractorsName' => $_POST['contractorsName'],
-        'contractorsVatId' => $_POST['contractorsVatId'],
-        'netAmountInCurrency' => $_POST['netAmountInCurrency'],
-        'currencyName' => $_POST['currencyName'],
-        'invoiceDate' => $_POST['invoiceDate'],
-        'path' => $endpath
-    ];
+    $message = "";
 
-    insertBuyInvoice($data, $dbh);
+    if ($_POST['netAmount'] > $_POST['grossAmount']) {
+        $message = $message . "Kwota brutto nie może być mniejsza, niż kwota netto" . '\n';
+    }
+    if ($_POST['invoiceNumber'] == NULL) {
+        $message = $message . "Wprowadż numer faktury" . '\n';
+    }
+    if ($_POST['netAmount'] == NULL) {
+        $message = $message . "Wprowadż kwotę netto" . '\n';
+    }
+    if ($_POST['grossAmount'] == NULL) {
+        $message = $message . "Wprowadż kwotę brutto" . '\n';
+    }
+    if ($_POST['contractorsName'] == NULL) {
+        $message = $message . "Wprowadż nazwe kontrahenta" . '\n';
+    }
+    if ($_POST['contractorsVatId'] == NULL) {
+        $message = $message . "Wprowadż VAT ID kontrahenta" . '\n';
+    }
+    if ($_POST['invoiceDate'] == NULL) {
+        $message = $message . "Wprowadż datę faktury" . '\n';
+    }
+
+    if($message == ""){
+        $data = [
+            'invoiceNumber' => $_POST['invoiceNumber'],
+            'grossAmount' => $_POST['grossAmount'],
+            'VATTaxAmount' => $_POST['grossAmount'] - $_POST['netAmount'],
+            'netAmount' => $_POST['netAmount'],
+            'contractorsName' => $_POST['contractorsName'],
+            'contractorsVatId' => $_POST['contractorsVatId'],
+            'netAmountInCurrency' => $_POST['netAmountInCurrency'],
+            'currencyName' => $_POST['currencyName'],
+            'invoiceDate' => $_POST['invoiceDate'],
+            'path' => $endpath
+        ];
+        insertBuyInvoice($data, $dbh);
+        echo "<script type='text/javascript'>alert('Faktura została dodana');</script>";
+    } else {
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
 }
 else if(!(isset($_FILES['plik']))) {
     $_COOKIE["File"]=0;
@@ -67,4 +92,3 @@ else if( $_COOKIE["File"]=="0") {
     echo 'alert("Dodaj plik")';
     echo '</script>';
 }
-echoTop($_COOKIE["File"]);

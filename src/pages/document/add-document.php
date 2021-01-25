@@ -39,14 +39,27 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
         $endpath = $path . $newFileName;
     }
 
-    $data = [
-        'documentDate' => $_POST['documentDate'],
-        'notes' => $_POST['notes'],
-        'pagesNumber' => $_POST['pagesNumber'],
-        'path' => $endpath
-    ];
+    $message = "";
 
-    insertDocument($data, $dbh);
+    if ($_POST['documentDate'] == NULL) {
+        $message = $message . "Wprowadż datę dokumentu" . '\n';
+    }
+    if ($_POST['pagesNumber'] == NULL) {
+        $message = $message . "Wprowadż ilość stron dokumentu" . '\n';
+    }
+
+    if ($message == ""){
+        $data = [
+            'documentDate' => $_POST['documentDate'],
+            'notes' => $_POST['notes'],
+            'pagesNumber' => $_POST['pagesNumber'],
+            'path' => $endpath
+        ];
+        insertDocument($data, $dbh);
+        echo "<script type='text/javascript'>alert('Dokument został dodany');</script>";
+    } else {
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
 }
 else if(!(isset($_FILES['plik']))) {
     $_COOKIE["File"]=0;
@@ -56,4 +69,3 @@ else if( $_COOKIE["File"]=="0") {
     echo 'alert("Dodaj plik")';
     echo '</script>';
 }
-echoTop($_COOKIE["File"]);
