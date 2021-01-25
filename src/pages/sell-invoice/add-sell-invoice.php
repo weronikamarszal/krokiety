@@ -12,7 +12,17 @@ function insertSellInvoice($data,$dbh){
 contractorsName, contractorsVatId, netAmountInCurrency, currencyName, invoiceDate, path)
 VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsName, :contractorsVatId,
 :netAmountInCurrency, :currencyName, :invoiceDate, :path)") ;
-    $stmt->execute($data);
+    $res=$stmt->execute($data);
+   if ($res==true){
+       echo '<script language="javascript">';
+       echo 'alert("Dane przesłane poprawnie!")';
+       echo '</script>';
+   }
+   else{
+       echo '<script language="javascript">';
+       echo 'alert("Nie udało się przesłać danych!")';
+       echo '</script>';
+   }
 }
 
 displayMenu(new BaseAddPage("Dodaj fakturę sprzedaży", new AddInvoiceComponent($errors)));
