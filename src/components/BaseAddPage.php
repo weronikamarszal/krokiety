@@ -22,7 +22,17 @@ class BaseAddPage implements Component
         ob_start();
         ?>
         <h2> <?= $this->title ?></h2>
+        <?php
+        if (isset($_GET["error"])) {
+            if ($_GET["error"] == "wrongpassword") {
+                echo "<p> Nieprawidłowe hasło! </p>";
+            } else if ($_GET["error"] == "wronglogin") {
+                echo "<p> Nieprawidłowa nazwa użytkownika! </p>";
+            }
+        }
+        ?>
         <?= $this->formComponent ?>
+
         <?php
         return ob_get_clean();
     }

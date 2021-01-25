@@ -30,13 +30,13 @@ if(isset($_POST['username'])) {
     $password=$_POST["password"];
     $uidExists = uidExists($dbh, $userName, $password);
     if ($uidExists === false) {
-        header("location: ./login.php?error=wronglogin");
+        header("location: ./login?error=wronglogin");
         exit();
     }
     $pwdHashed = $uidExists["password"];
     $checkPwd = password_verify($password, $pwdHashed);
     if ($checkPwd === false) {
-        header("location: ./login.php?error=wrongpassword");
+        header("location: ./login?error=wrongpassword");
         exit();
     } else if ($checkPwd === true) {
         session_save_path("/krokiety/session_files");

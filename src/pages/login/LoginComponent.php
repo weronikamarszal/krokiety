@@ -10,8 +10,10 @@ class LoginComponent extends BaseFormComponent implements Component
         $this->readonly = $readonly;
         $this->fields = array(
             new TextInputField('Login', 'username', $errors['username'],$readonly, $value->username),
+
             new PasswordInputField('Hasło', 'password', $errors['password'], $readonly, $value->password),
         );
     }
+
 
 }
