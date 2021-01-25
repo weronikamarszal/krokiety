@@ -4,11 +4,11 @@ require_once __DIR__ . '/../../autoload.php';
 class AddLicenceComponent extends BaseFormComponent implements Component
 {
 
-    public function __construct($errors)
+    public function __construct($errors, $usersId, $invoicesId)
     {
         $this->fields = array(
-            new NumberInputField('Id faktury', 'purchaseInvoiceId', $errors['purchaseInvoiceId']),
-            new NumberInputField('Na czyim jest stanie', 'userId', $errors['userId']),
+            new SelectField('Id faktury', 'purchaseInvoiceId', $invoicesId, $errors['purchaseInvoiceId']),
+            new SelectField('Na czyim jest stanie', 'userId', $usersId, $errors['userId']),
             new TextInputField('Nazwa', 'name', $errors['name']),
             new TextInputField('Numer seryjny', 'serialNumber', $errors['serialNumber']),
             new TextInputField('Numer inwentarzowy', 'inventoryNumber', $errors['inventoryNumber']),
