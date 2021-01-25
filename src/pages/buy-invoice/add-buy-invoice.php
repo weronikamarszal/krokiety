@@ -44,7 +44,7 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
     $data = [
         'invoiceNumber' => $_POST['invoiceNumber'],
         'grossAmount' => $_POST['grossAmount'],
-        'VATTaxAmount' => $_POST['VATTaxAmount'],
+        'VATTaxAmount' => $_POST['grossAmount'] - $_POST['netAmount'],
         'netAmount' => $_POST['netAmount'],
         'contractorsName' => $_POST['contractorsName'],
         'contractorsVatId' => $_POST['contractorsVatId'],
