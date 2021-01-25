@@ -5,12 +5,12 @@ class Licence
 {
     private $id;
     private $purchaseInvoiceId;
-    private $UserId;
+    private $userId;
     private $name;
     private $serialNumber;
     private $inventoryNumber;
     private $purchaseDate;
-    private $licenceValidTill;
+    private $licenseValidTill;
     private $technicalSupportValid_till;
     private $description;
     private $note;
@@ -52,15 +52,15 @@ class Licence
      */
     public function getUserId()
     {
-        return $this->UserId;
+        return $this->userId;
     }
 
     /**
-     * @param mixed $UserId
+     * @param mixed $userId
      */
-    public function setUserId($UserId)
+    public function setUserId($userId)
     {
-        $this->UserId = $UserId;
+        $this->userId = $userId;
     }
 
     /**
@@ -130,17 +130,17 @@ class Licence
     /**
      * @return mixed
      */
-    public function getLicenceValidTill()
+    public function getLicenseValidTill()
     {
-        return $this->licenceValidTill;
+        return $this->licenseValidTill;
     }
 
     /**
-     * @param mixed $licenceValidTill
+     * @param mixed $licenseValidTill
      */
-    public function setLicenceValidTill($licenceValidTill)
+    public function setLicenseValidTill($licenseValidTill)
     {
-        $this->licenceValidTill = $licenceValidTill;
+        $this->licenseValidTill = $licenseValidTill;
     }
 
     /**
