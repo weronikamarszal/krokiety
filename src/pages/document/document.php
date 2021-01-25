@@ -12,6 +12,7 @@ try {
     $stmt = $dbh->prepare("SELECT * FROM documents {$searchValues->getCondition()} ORDER BY id ASC {$pagination->getQueryPart()}");
     $stmt->execute($searchValues->getSearchValues());
     $documentsList = $stmt->fetchAll(PDO::FETCH_CLASS, "Document");
+    setcookie("File",0);
 } catch (Exception $e) {
     throw new Exception($e->getMessage());
 }

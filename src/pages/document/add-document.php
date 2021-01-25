@@ -48,3 +48,12 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
 
     insertDocument($data, $dbh);
 }
+else if(!(isset($_FILES['plik']))) {
+    $_COOKIE["File"]=0;
+}
+else if( $_COOKIE["File"]=="0") {
+    echo '<script language="javascript">';
+    echo 'alert("Dodaj plik")';
+    echo '</script>';
+}
+echoTop($_COOKIE["File"]);

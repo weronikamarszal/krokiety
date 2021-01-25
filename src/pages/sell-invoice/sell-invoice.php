@@ -10,6 +10,7 @@ try {
     $stmt = $dbh->prepare("SELECT * FROM salesinvoices {$searchValues->getCondition()} ORDER BY id ASC {$pagination->getQueryPart()}");
     $stmt->execute($searchValues->getSearchValues());
     $sellInvoicesList = $stmt->fetchAll(PDO::FETCH_CLASS, "SellInvoice");
+    setcookie("File",0);
 } catch (Exception $e) {
     throw new Exception($e->getMessage());
 }

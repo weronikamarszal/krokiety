@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/../../autoload.php';
 
+if($_SESSION["role"]=="user"){
+    setcookie("File",0);
+}
 $validator = new InvoiceValidation();
 $errors = $validator->getEmptyValidations();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -56,3 +59,12 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
 
     insertBuyInvoice($data, $dbh);
 }
+else if(!(isset($_FILES['plik']))) {
+    $_COOKIE["File"]=0;
+}
+else if( $_COOKIE["File"]=="0") {
+    echo '<script language="javascript">';
+    echo 'alert("Dodaj plik")';
+    echo '</script>';
+}
+echoTop($_COOKIE["File"]);
