@@ -15,12 +15,7 @@ VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsNam
     $res=$stmt->execute($data);
    if ($res==true){
        echo '<script language="javascript">';
-       echo 'alert("Dane przesłane poprawnie!")';
-       echo '</script>';
-   }
-   else{
-       echo '<script language="javascript">';
-       echo 'alert("Nie udało się przesłać danych!")';
+       echo 'alert("Invoice uploaded successfully")';
        echo '</script>';
    }
 }
@@ -51,18 +46,49 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
         $endpath = $path . $newFileName;
     }
 
-    $data = [
-        'invoiceNumber' => $_POST['invoiceNumber'],
-        'grossAmount' => $_POST['grossAmount'],
-        'VATTaxAmount' => $_POST['VATTaxAmount'],
-        'netAmount' => $_POST['netAmount'],
-        'contractorsName' => $_POST['contractorsName'],
-        'contractorsVatId' => $_POST['contractorsVatId'],
-        'netAmountInCurrency' => $_POST['netAmountInCurrency'],
-        'currencyName' => $_POST['currencyName'],
-        'invoiceDate' => $_POST['invoiceDate'],
-        'path' => $endpath
-    ];
 
-    insertSellInvoice($data, $dbh);
+    $message = "";
+
+    if ($_POST['netAmount'] > $_POST['grossAmount']) {
+        $message = $message . "Gross amount cannot be less than net amount!" . '\n';
+    }
+    if ($_POST['invoiceNumber'] == NULL) {
+        $message = $message . "Please, provide an invoice number" . '\n';
+    }
+    if ($_POST['netAmount'] == NULL) {
+        $message = $message . "Please, provide net amount" . '\n';
+    }
+    if ($_POST['grossAmount'] == NULL) {
+        $message = $message . "Please, provide gross amount" . '\n';
+    }
+    if ($_POST['contractorsName'] == NULL) {
+        $message = $message . "Please, provide contractors name" . '\n';
+    }
+    if ($_POST['contractorsVatId'] == NULL) {
+        $message = $message . "Please, provide contractors VAT id" . '\n';
+    }
+    if ($_POST['invoiceDate'] == NULL) {
+        $message = $message . "Please, provide invoice date" . '\n';
+    }
+//    elseif (isset($_FILES['plik']) == false) {
+//        $message = $message . "Please, upload the file" . "\n";
+//    }
+
+    if($message == ""){
+        $data = [
+            'invoiceNumber' => $_POST['invoiceNumber'],
+            'grossAmount' => $_POST['grossAmount'],
+            'VATTaxAmount' => $_POST['grossAmount'] - $_POST['netAmount'],
+            'netAmount' => $_POST['netAmount'],
+            'contractorsName' => $_POST['contractorsName'],
+            'contractorsVatId' => $_POST['contractorsVatId'],
+            'netAmountInCurrency' => $_POST['netAmountInCurrency'],
+            'currencyName' => $_POST['currencyName'],
+            'invoiceDate' => $_POST['invoiceDate'],
+            'path' => $endpath
+        ];
+        insertSellInvoice($data, $dbh);
+    } else {
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
 }

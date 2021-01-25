@@ -12,7 +12,6 @@ class AddInvoiceComponent extends BaseFormComponent implements Component
             new TextInputField('Numer faktury', 'invoiceNumber', $errors['invoiceNumber'], $readonly, $value->invoiceNumber),
             new NumberInputField('Kwota netto', 'netAmount', $errors['netAmount'], $readonly, $value->netAmount),
             new NumberInputField('Kwota brutto', 'grossAmount', $errors['grossAmount'], $readonly, $value->grossAmount),
-            new NumberInputField('Kwota podatku VAT', 'VATTaxAmount', $errors['VATTaxAmount'], $readonly, $value->VATTaxAmount),
             new TextInputField('Nazwa kontrahenta', 'contractorsName', $errors['contractorsName'], $readonly, $value->contractorsName),
             new TextInputField('VAT ID kontrahenta', 'contractorsVatId', $errors['contractorsVatId'], $readonly, $value->contractorsVatId),
             new NumberInputField('Kwota netto w walucie', 'netAmountInCurrency', $errors['netAmountInCurrency'], $readonly, $value->netAmountInCurrency),
