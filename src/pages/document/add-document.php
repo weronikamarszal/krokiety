@@ -10,7 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 function insertDocument($data,$dbh){
     $stmt = $dbh->prepare("INSERT INTO documents (documentDate, notes, pagesNumber, path)
 VALUES (:documentDate, :notes, :pagesNumber, :path)") ;
-    $stmt->execute($data);
+    $res=$stmt->execute($data);
+    if($res = true){
+        echo "<script type='text/javascript'>alert('Dokument został dodany');</script>";
+    }
 }
 
 displayMenu(new BaseAddPage("Dodaj dokument", new AddDocumentComponent($errors)));
@@ -56,7 +59,6 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
             'path' => $endpath
         ];
         insertDocument($data, $dbh);
-        echo "<script type='text/javascript'>alert('Dokument został dodany');</script>";
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }

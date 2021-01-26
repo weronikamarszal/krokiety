@@ -14,7 +14,10 @@ function insertLicence($data, $dbh)
 licenseValidTill, technicalSupportValid_till, description, note)
 VALUES (:purchaseInvoiceId, :userId, :name, :serialNumber, :inventoryNumber, :purchaseDate, :licenseValidTill, 
 :technicalSupportValid_till, :description, :note)");
-    $stmt->execute($data);
+    $res=$stmt->execute($data);
+    if($res = true){
+        echo "<script type='text/javascript'>alert('Licencja została dodana');</script>";
+    }
 }
 
 $usersId = $dbh->prepare("SELECT id FROM users");
@@ -71,7 +74,6 @@ if ($_POST['name'] != NULL) {
             'note' => $_POST['note']
         ];
         insertLicence($data, $dbh);
-        echo "<script type='text/javascript'>alert('Licencja została dodana');</script>";
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }

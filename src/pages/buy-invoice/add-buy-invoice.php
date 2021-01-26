@@ -16,6 +16,9 @@ contractorsName, contractorsVatId, netAmountInCurrency, currencyName, invoiceDat
 VALUES (:invoiceNumber, :grossAmount, :VATTaxAmount, :netAmount, :contractorsName, :contractorsVatId,
 :netAmountInCurrency, :currencyName, :invoiceDate, :path)") ;
     $res=$stmt->execute($data);
+    if($res = true){
+        echo "<script type='text/javascript'>alert('Faktura została dodana');</script>";
+    }
 }
 
 displayMenu(new BaseAddPage("Dodaj fakturę zakupu", new AddInvoiceComponent($errors)));
@@ -79,7 +82,6 @@ if (isset($_FILES['plik']) && $_FILES['plik']['error'] === UPLOAD_ERR_OK) {
             'path' => $endpath
         ];
         insertBuyInvoice($data, $dbh);
-        echo "<script type='text/javascript'>alert('Faktura została dodana');</script>";
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
