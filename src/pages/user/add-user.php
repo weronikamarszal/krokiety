@@ -19,7 +19,7 @@ function insertUser($data,$dbh){
     $stmt= $dbh->prepare("INSERT INTO users (login, firstName,surname, password,phoneNumber,role,email) VALUES 
         (:login,:firstName,:surname,:password,:phoneNumber,:role,:email)");
     $res=$stmt->execute($data);
-    if ($res = true) {
+    if ($res == true) {
         echo "<script type='text/javascript'>alert('Użytkownik został dodany');</script>";
     }
 }

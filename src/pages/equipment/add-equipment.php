@@ -14,7 +14,7 @@ description, netValue, inPossessionOf, purchaseInvNum, warrExpiryDate)
 VALUES (:purchaseDate, :deviceName, :inventoryNumber, :serialNumber, :notes, 
 :description, :netValue, :inPossessionOf, :purchaseInvNum, :warrExpiryDate)");
     $res=$stmt->execute($data);
-    if($res = true){
+    if($res == true){
         echo "<script type='text/javascript'>alert('Sprzęt został dodany');</script>";
     }
 }
@@ -64,10 +64,7 @@ if ($_POST['purchaseDate'] != NULL) {
             'warrExpiryDate' => $_POST['warrExpiryDate']
         ];
 
-        global $dbh;
-        if (isset($_POST['notes'])) {
             insertEquipment($data, $dbh);
-        }
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }

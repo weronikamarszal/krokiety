@@ -11,7 +11,7 @@ function insertDocument($data,$dbh){
     $stmt = $dbh->prepare("INSERT INTO documents (documentDate, notes, pagesNumber, path)
 VALUES (:documentDate, :notes, :pagesNumber, :path)") ;
     $res=$stmt->execute($data);
-    if($res = true){
+    if($res == true){
         echo "<script type='text/javascript'>alert('Dokument został dodany');</script>";
     }
 }

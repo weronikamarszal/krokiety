@@ -15,7 +15,7 @@ licenseValidTill, technicalSupportValid_till, description, note)
 VALUES (:purchaseInvoiceId, :userId, :name, :serialNumber, :inventoryNumber, :purchaseDate, :licenseValidTill, 
 :technicalSupportValid_till, :description, :note)");
     $res=$stmt->execute($data);
-    if($res = true){
+    if($res == true){
         echo "<script type='text/javascript'>alert('Licencja została dodana');</script>";
     }
 }
