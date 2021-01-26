@@ -29,6 +29,7 @@ class BuyInvoiceListComponent implements Component
                 <th> Kwota netto w walucie</th>
                 <th> Nazwa waluty</th>
                 <th> Data</th>
+                <th> Podgląd</th>
 
             </tr>
             </thead>

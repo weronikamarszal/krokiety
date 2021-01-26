@@ -26,7 +26,7 @@ class EquipmentListComponent implements Component
                 <th>Notatki</th>
                 <th>Opis </th>
                 <th>Wartość netto </th>
-                <th>Na stanie </th>
+                <th>ID obecnego posiadacza </th>
                 <th>ID faktury zakupu </th>
                 <th>Data ważności gwarancji</th>
             </tr>
