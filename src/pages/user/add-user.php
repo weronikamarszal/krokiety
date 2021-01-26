@@ -23,7 +23,9 @@ function insertUser($data,$dbh){
         echo "<script type='text/javascript'>alert('Użytkownik został dodany');</script>";
     }
 }
-displayMenu(new BaseAddPage("Dodaj użytkownika", new AddUserComponent($errors)));
+
+$roles = ["owner", "auditor", "employee"];
+displayMenu(new BaseAddPage("Dodaj użytkownika", new AddUserComponent($errors, $roles)));
 
 if (isset($_POST['firstName'])) {
     $message = "";

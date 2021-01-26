@@ -18,8 +18,19 @@ VALUES (:purchaseDate, :deviceName, :inventoryNumber, :serialNumber, :notes,
         echo "<script type='text/javascript'>alert('Sprzęt został dodany');</script>";
     }
 }
+$usersId = $dbh->prepare("SELECT id FROM users");
+$usersId->execute();
+$usersId = array_map(function ($i) {
+    return $i->getId();
+}, $usersId->fetchAll(PDO::FETCH_CLASS, "User"));
 
-displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors, $_POST)));
+$invoicesId = $dbh->prepare("SELECT id FROM purchaseinvoices");
+$invoicesId->execute();
+$invoicesId = array_map(function ($i) {
+    return $i->getId();
+}, $invoicesId->fetchAll(PDO::FETCH_CLASS, "BuyInvoice"));
+
+displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors, $usersId, $invoicesId)));
 
 if ($_POST['purchaseDate'] != NULL) {
 

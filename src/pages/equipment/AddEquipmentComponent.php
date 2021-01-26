@@ -3,20 +3,19 @@ require_once __DIR__ . '/../../autoload.php';
 
 class AddEquipmentComponent extends BaseFormComponent implements Component
 {
-    public function __construct($errors, $value = null, $readonly = false )
+    public function __construct($errors, $usersId, $invoicesId)
     {
-        $this->readonly = $readonly;
         $this->fields = array(
-            new DateInputField('Data zakupu', 'purchaseDate', $errors['purchaseDate'], $readonly, $value->purchaseDate),
-            new TextInputField('Nazwa sprzętu', 'deviceName', $errors['deviceName'], $readonly, $value->deviceName),
-            new TextInputField('Numer inwentarzowy zakupu', 'inventoryNumber', $errors['inventoryNumber'], $readonly, $value->inventoryNumber),
-            new TextInputField('Numer seryjny', 'serialNumber', $errors['serialNumber'], $readonly, $value->serialNumber),
-            new TextInputField('Notatki', 'notes', $errors['notes'], $readonly, $value->notes),
-            new TextInputField('Opis', 'description', $errors['description'], $readonly, $value->description),
-            new NumberInputField('Wartość netto', 'netValue', $errors['netValue'], $readonly, $value->netValue),
-            new NumberInputField('Na czyim jest stanie', 'inPossessionOf', $errors['inPossessionOf'], $readonly, $value->inPossessionOf),
-            new NumberInputField('Numer faktury', 'purchaseInvNum', $errors['purchaseInvNum'], $readonly, $value->purchaseInvNum),
-            new DateInputField('Data wygaśnięcia gwarancji', 'warrExpiryDate', $errors['warrExpiryDate'], $readonly, $value->warrExpiryDate)
+            new DateInputField('Data zakupu', 'purchaseDate', $errors['purchaseDate']),
+            new TextInputField('Nazwa sprzętu', 'deviceName', $errors['deviceName']),
+            new TextInputField('Numer inwentarzowy zakupu', 'inventoryNumber', $errors['inventoryNumber']),
+            new TextInputField('Numer seryjny', 'serialNumber', $errors['serialNumber']),
+            new TextInputField('Notatki', 'notes', $errors['notes']),
+            new TextInputField('Opis', 'description', $errors['description']),
+            new NumberInputField('Wartość netto', 'netValue', $errors['netValue']),
+            new SelectField('Na czyim jest stanie', 'inPossessionOf', $usersId, $errors['inPossessionOf']),
+            new SelectField('Id faktury', 'purchaseInvNum', $invoicesId, $errors['purchaseInvNum']),
+            new DateInputField('Data wygaśnięcia gwarancji', 'warrExpiryDate', $errors['warrExpiryDate'])
         );
     }
 
