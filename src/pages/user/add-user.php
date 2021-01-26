@@ -18,7 +18,10 @@ function insertUser($data,$dbh){
 
     $stmt= $dbh->prepare("INSERT INTO users (login, firstName,surname, password,phoneNumber,role,email) VALUES 
         (:login,:firstName,:surname,:password,:phoneNumber,:role,:email)");
-    $stmt->execute($data);
+    $res=$stmt->execute($data);
+    if ($res = true) {
+        echo "<script type='text/javascript'>alert('Użytkownik został dodany');</script>";
+    }
 }
 displayMenu(new BaseAddPage("Dodaj użytkownika", new AddUserComponent($errors)));
 
@@ -80,7 +83,6 @@ if (isset($_POST['firstName'])) {
             'email' => $email
         ];
         insertUser($data, $dbh);
-        echo "<script type='text/javascript'>alert('Użytkownik został dodany');</script>";
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }

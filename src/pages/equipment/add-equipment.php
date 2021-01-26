@@ -13,7 +13,10 @@ function insertEquipment($data, $dbh)
 description, netValue, inPossessionOf, purchaseInvNum, warrExpiryDate)
 VALUES (:purchaseDate, :deviceName, :inventoryNumber, :serialNumber, :notes, 
 :description, :netValue, :inPossessionOf, :purchaseInvNum, :warrExpiryDate)");
-    $stmt->execute($data);
+    $res=$stmt->execute($data);
+    if($res = true){
+        echo "<script type='text/javascript'>alert('Sprzęt został dodany');</script>";
+    }
 }
 
 displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors, $_POST)));
@@ -65,7 +68,6 @@ if ($_POST['purchaseDate'] != NULL) {
         if (isset($_POST['notes'])) {
             insertEquipment($data, $dbh);
         }
-        echo "<script type='text/javascript'>alert('Sprzęt został dodany');</script>";
     } else {
         echo "<script type='text/javascript'>alert('$message');</script>";
     }
