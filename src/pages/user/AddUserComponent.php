@@ -4,14 +4,14 @@ require_once __DIR__ . '/../../autoload.php';
 class AddUserComponent extends BaseFormComponent implements Component
 {
 
-    public function __construct($errors)
+    public function __construct($errors, $roles)
     {
         $this->fields = array(
             new TextInputField('Imię', 'firstName', $errors['firstName']),
             new TextInputField('Nazwisko', 'surname', $errors['surname']),
-            new TextInputField('Hasło', 'password', $errors['password']),
+            new PasswordInputField('Hasło', 'password', $errors['password']),
             new TextInputField('Numer telefonu', 'phoneNumber', $errors['phoneNumber']),
-            new TextInputField('Rola', 'role', $errors['role']),
+            new SelectField('Rola', 'role', $roles, $errors['purchaseInvoiceId'])
         );
 
     }
