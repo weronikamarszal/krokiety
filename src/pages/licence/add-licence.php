@@ -34,10 +34,19 @@ $invoicesId = array_map(function ($i) {
 
 displayMenu(new BaseAddPage("Dodaj licencję", new AddLicenceComponent($errors, $usersId, $invoicesId)));
 
-if ($_POST['name'] != NULL) {
+if (isset($_POST['name'])) {
 
     $message = "";
 
+    if ($_POST['purchaseInvoiceId'] == "Wybierz"){
+        $message = $message . "Wprowadż id faktury" . '\n';
+    }
+    if ($_POST['userId'] == "Wybierz"){
+        $message = $message . "Wprowadż id użytkownika" . '\n';
+    }
+    if ($_POST['name'] == NULL){
+        $message = $message . "Wprowadż nazwę" . '\n';
+    }
     if ($_POST['serialNumber'] == NULL){
         $message = $message . "Wprowadż numer seryjny" . '\n';
     }

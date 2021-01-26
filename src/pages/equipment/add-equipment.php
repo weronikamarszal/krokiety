@@ -32,7 +32,7 @@ $invoicesId = array_map(function ($i) {
 
 displayMenu(new BaseAddPage("Dodaj sprzęt", new AddEquipmentComponent($errors, $usersId, $invoicesId)));
 
-if ($_POST['purchaseDate'] != NULL) {
+if (isset($_POST['purchaseDate'])) {
 
     $message = "";
 
@@ -41,6 +41,9 @@ if ($_POST['purchaseDate'] != NULL) {
     $dateNow = date("Y-m-d");
     if ($buyDateConverted > $dateNow){
         $message = $message . "Data zakupu nie może być w przyszłości" . '\n';
+    }
+    if ($_POST['purchaseDate'] == NULL) {
+        $message = $message . "Wprowadż datę zakupu" . '\n';
     }
     if ($_POST['deviceName'] == NULL){
         $message = $message . "Wprowadż nazwę sprzętu" . '\n';
@@ -54,7 +57,10 @@ if ($_POST['purchaseDate'] != NULL) {
     if ($_POST['netValue'] == NULL){
         $message = $message . "Wprowadż wartość netto" . '\n';
     }
-    if ($_POST['purchaseInvNum'] == NULL){
+    if ($_POST['inPossessionOf'] == "Wybierz") {
+        $message = $message . "Wprowadż na czyim jest stanie" . '\n';
+    }
+    if ($_POST['purchaseInvNum'] == "Wybierz"){
         $message = $message . "Wprowadż numer faktury" . '\n';
     }
     if ($_POST['warrExpiryDate'] == NULL){

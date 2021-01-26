@@ -30,6 +30,9 @@ displayMenu(new BaseAddPage("Dodaj użytkownika", new AddUserComponent($errors, 
 if (isset($_POST['firstName'])) {
     $message = "";
 
+    if ($_POST['firstName'] == NULL){
+        $message = $message . "Wprowadż imię" . '\n';
+    }
     if ($_POST['surname'] == NULL){
         $message = $message . "Wprowadż nazwisko" . '\n';
     }
